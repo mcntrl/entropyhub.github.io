@@ -1,0 +1,62 @@
+/*******************************************************************************
+//
+//
+//
+//  #SECTION
+//
+//
+//
+*******************************************************************************/
+
+.c-section {
+    @include rem-fallback(padding-top, 50px - $base-spacing);
+    @include rem-fallback(padding-bottom, 50px);
+
+    position: relative;
+
+    @include mq-at-least(lg) {
+        @include rem-fallback(padding-top, 125px - $base-spacing);
+        @include rem-fallback(padding-bottom, 125px);
+    }
+
+    &.-background-gradient-purple-orange {
+        @extend %a-gradient;
+
+        background: linear-gradient(#{map-get($gradients, purple-orange)});
+    }
+
+    &.-padding-bottom-double {
+        @include rem-fallback(padding-bottom, 250px);
+    }
+
+    &.-padding-y-none {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    &.-margin-y-half {
+        @include rem-fallback(margin-top, 50px / 2);
+        @include rem-fallback(margin-bottom, 50px / 2);
+
+        @include mq-at-least(md) {
+            @include rem-fallback(margin-top, 125px / 2);
+            @include rem-fallback(margin-bottom, 125px / 2);
+        }
+    }
+
+    &.-margin-top-half {
+        @include rem-fallback(margin-top, 50px / 2);
+
+        @include mq-at-least(md) {
+            @include rem-fallback(margin-top, 125px / 2);
+        }
+    }
+
+    &.-margin-bottom-half {
+        @include rem-fallback(margin-bottom, 50px / 2);
+
+        @include mq-at-least(md) {
+            @include rem-fallback(margin-bottom, 125px / 2);
+        }
+    }
+}

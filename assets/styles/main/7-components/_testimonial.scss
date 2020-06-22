@@ -1,0 +1,33 @@
+/*******************************************************************************
+//
+//
+//
+//  #TESTIMONIAL
+//
+//
+//
+*******************************************************************************/
+
+.c-testimonial {
+    @include rem-fallback(margin, $base-spacing 0 0);
+
+    padding: 100px 0;
+    line-height: 1.4;
+    text-align: center;
+
+    footer {
+        @include rem-fallback(margin, $base-spacing 0 0);
+    }
+
+    p {
+        font-size: calc(22px + (38 - 22) * ((100vw - 320px) / (1440 - 320)));
+
+        @include mq-until(320px) {
+            font-size: 22px;
+        }
+
+        @include mq-at-least(1440px) {
+            font-size: 38px;
+        }
+    }
+}

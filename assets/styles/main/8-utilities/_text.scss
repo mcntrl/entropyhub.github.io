@@ -1,0 +1,72 @@
+/*******************************************************************************
+//
+//
+//
+//  #TEXT
+//
+//
+//
+*******************************************************************************/
+
+$text: true;
+$text-breakpoints: (md);
+
+@if $text {
+    .u-font-light { font-weight: 300!important; }
+    .u-font-normal { font-weight: 400!important; }
+    .u-font-bold { font-weight: 700!important; }
+    .u-font-italic { font-style: italic!important; }
+
+    @each $fontSizeName, $fontSize in $font-sizes {
+        $fontMin: strip-unit(nth($fontSize, 1));
+        $fontMax: strip-unit(nth($fontSize, 2));
+
+        .u-font-#{$fontSizeName},
+        %u-font-#{$fontSizeName} {
+            font-size: calc((#{$fontMin} * 1px) + (#{$fontMax} - #{$fontMin}) * ((100vw - 320px) / (1440 - 320)));
+
+            @if $fontSizeName == 11 {
+                line-height: 1;
+            } @else {
+                line-height: 1.2;
+            }
+
+            @include mq-until(320px) {
+                font-size: $fontMin * 1px;
+            }
+
+            @include mq-at-least(1440px) {
+                font-size: $fontMax * 1px;
+            }
+        }
+    }
+
+    .u-text-justify { text-align: justify!important; }
+    .u-text-nowrap { white-space: nowrap!important; }
+
+    .u-text-capitalize { text-transform: capitalize!important; }
+    .u-text-lowercase { text-transform: lowercase!important; }
+    .u-text-uppercase { text-transform: uppercase!important; }
+
+    .u-text-center { text-align: center!important; }
+    .u-text-left { text-align: left!important; }
+    .u-text-right { text-align: right!important; }
+
+    .u-text-hide { @include hide-text(); }
+
+    @each $text-breakpoint in $text-breakpoints {
+        @include mq-at-least($text-breakpoint) {
+            .u-text-#{$text-breakpoint}-center { text-align: center!important; }
+            .u-text-#{$text-breakpoint}-left { text-align: left!important; }
+            .u-text-#{$text-breakpoint}-right { text-align: right!important; }
+            
+            // @each $fontSizeName, $fontSize in $font-sizes {
+            //     .u-font-#{$text-breakpoint}-#{$fontSizeName} {
+            //         @include font-size($fontSize, false);
+
+            //         line-height: $base-line-height-ratio!important;
+            //     }
+            // }
+        }
+    }
+}

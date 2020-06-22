@@ -1,0 +1,196 @@
+/*******************************************************************************
+//
+//
+//
+//  #ICON
+//
+//
+//
+*******************************************************************************/
+
+.c-icon {
+    display: inline-block;
+    width: 175px;
+    height: 175px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 175px 5950px;
+
+    @include mq-at-least(md) {
+        width: 250px;
+        height: 250px;
+        background-size: 250px 8500px;
+    }
+
+    html.no-js & {
+        background-position: 0 -5775px;
+
+        @include mq-at-least(md) {
+            background-position: 0 -8250px;
+        }
+    }
+
+    html.js & {
+        background-position: 0 0;
+    }
+
+    &.is-in-view {
+        animation: icon-mobile 1.1s steps(33) forwards .5s;
+
+        @include mq-at-least(md) {
+            animation: icon-desktop 1.1s steps(33) forwards .5s;
+        }
+    }
+
+    &.-cloud {
+        @include mq-until(md) {
+            transform: translateX(-29px);
+        }
+
+        &.-green {
+            background-image: url('#{map-get($paths, images)}/sprite-icon-cloud-green.png');
+        }
+
+        &.-yellow {
+            background-image: url('#{map-get($paths, images)}/sprite-icon-cloud-yellow.png');
+        }
+
+        &.-left {
+            @include mq-at-least(md) {
+                transform: translate(-43px, 0);
+            }
+        }
+
+        &.-right {
+            @include mq-at-least(md) {
+                transform: translate(43px, 0);
+            }
+        }
+    }
+
+    &.-flutter {
+        @include mq-until(md) {
+            transform: translateX(-61px);
+        }
+
+        &.-green {
+            background-image: url('#{map-get($paths, images)}/sprite-icon-flutter-green.png');
+        }
+    }
+
+    &.-heart {
+        &.-green {
+            background-image: url('#{map-get($paths, images)}/sprite-icon-heart-green.png');
+        }
+
+        &.-right {
+            @include mq-at-least(md) {
+                transform: translate(43px, 0);
+            }
+        }
+    }
+
+    &.-mobile {
+        @include mq-until(md) {
+            transform: translateX(-55px);
+        }
+
+        &.-blue {
+            background-image: url('#{map-get($paths, images)}/sprite-icon-mobile-blue.png');
+        }
+
+        &.-yellow {
+            background-image: url('#{map-get($paths, images)}/sprite-icon-mobile-yellow.png');
+        }
+
+        &.-right {
+            @include mq-at-least(md) {
+                transform: translate(79px, 0);
+            }
+        }
+    }
+
+    &.-pencil {
+        @include mq-until(md) {
+            transform: translateX(-44px);
+        }
+
+        &.-yellow {
+            background-image: url('#{map-get($paths, images)}/sprite-icon-pencil-yellow.png');
+        }
+
+        &.-right {
+            @include mq-at-least(md) {
+                transform: translate(64px, 0);
+            }
+        }
+    }
+
+    &.-pin {
+        &.-blue {
+            background-image: url('#{map-get($paths, images)}/sprite-icon-pin-blue.png');
+        }
+
+        &.-center {
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+
+    &.-react {
+        @include mq-until(md) {
+            transform: translateX(-38px);
+        }
+
+        &.-green {
+            background-image: url('#{map-get($paths, images)}/sprite-icon-react-green.png');
+        }
+    }
+
+    &.-ruby {
+        @include mq-until(md) {
+            transform: translateX(-38px);
+        }
+
+        &.-blue {
+            background-image: url('#{map-get($paths, images)}/sprite-icon-ruby-blue.png');
+        }
+    }
+
+    &.-shield {
+        @include mq-until(md) {
+            transform: translateX(-45px);
+        }
+
+        &.-yellow {
+            background-image: url('#{map-get($paths, images)}/sprite-icon-shield-yellow.png');
+        }
+
+        &.-right {
+            @include mq-at-least(md) {
+                transform: translate(63px, 0);
+            }
+        }
+    }
+}
+
+@keyframes icon-mobile {
+    0% {
+        background-position-y: 0;
+    }
+
+    100% {
+        background-position-y: -5775px;
+    }
+}
+
+@keyframes icon-desktop {
+    0% {
+        background-position-y: 0;
+    }
+
+    100% {
+        background-position-y: -8250px;
+    }
+}

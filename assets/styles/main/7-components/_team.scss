@@ -1,0 +1,142 @@
+/*******************************************************************************
+//
+//
+//
+//  #TEAM
+//
+//
+//
+*******************************************************************************/
+
+// TODO: Refactor to section
+.c-team {
+    position: relative;
+
+    @include mq-until(md) {
+        background: rgba(255, 255, 255, .03);
+    }
+
+    &::after {
+        @include mq-until(md) {
+            content: '';
+            width: 100%;
+            height: 180px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            background: map-get($colors, black);
+        }
+    }
+
+    &::before {
+        @include mq-until(md) {
+            content: '';
+            width: 100%;
+            height: 80px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            background: map-get($colors, black);
+        }
+    }
+    
+    & > .l-container {
+        @include mq-until(md) {
+            position: relative;
+            z-index: 2;
+        }
+    }
+
+    .c-team__text-block {
+        @include mq-at-least(md) {
+            max-width: 500px;
+            float: right;
+        }
+
+        @include mq-at-least(xl) {
+            max-width: 600px;
+        }
+    }
+
+    .c-team__profiles {
+        position: relative;
+
+        @include mq-at-least(md) {
+            padding: 80px 40px 540px;
+            background: rgba(255, 255, 255, .03);
+        }
+
+        @include mq-at-least(lg) {
+            padding-right: 80px;
+            padding-left: 80px;
+        }
+    }
+
+    .c-team__profile {
+        text-align: center;
+
+        @include mq-until(md) {
+            @include rem-fallback(margin-top, 35px);
+            @include rem-fallback(margin-bottom, 35px);
+        }
+
+        .c-team__profile-image {
+            width: 136px;
+            margin-bottom: 16px;
+        }
+
+        &#c-team__profile-1 {
+            @include mq-at-least(md) {
+                position: absolute;
+                top: 140px;
+                left: calc((100% - 680px) / 2);
+                transform: translate(-50%, 0);
+            }
+        }
+
+        &#c-team__profile-2 {
+            @include mq-at-least(md) {
+                position: absolute;
+                top: 426px;
+                left: 0;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        &#c-team__profile-3 {
+            @include mq-at-least(md) {
+                position: absolute;
+                top: 560px;
+                left: 50%;
+                transform: translate(-150%, 0);
+            }
+
+            @include mq-at-least(lg) {
+                transform: translate(-200%, 0);
+            }
+        }
+
+        &#c-team__profile-4 {
+            @include mq-at-least(md) {
+                position: absolute;
+                top: 560px;
+                left: 50%;
+                transform: translate(0, 50%);
+            }
+
+            @include mq-at-least(lg) {
+                transform: translate(25%, 50%);
+            }
+        }
+
+        &#c-team__profile-5 {
+            @include mq-at-least(md) {
+                position: absolute;
+                top: 479px;
+                right: 80px;
+            }
+        }
+    }
+}

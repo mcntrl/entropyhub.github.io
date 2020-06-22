@@ -1,0 +1,17 @@
+//******************************************************************************
+//
+//
+//
+//  #BASE
+//  -> Base variables
+//
+//
+//
+//******************************************************************************
+
+$base-font: $font-poppins;
+$base-font-color: map-get($colors, white);
+$base-font-size: 16px;
+$base-line-height: 29px;
+$base-line-height-ratio: $base-line-height / $base-font-size;
+$base-spacing: $base-line-height;

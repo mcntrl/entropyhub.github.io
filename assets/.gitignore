@@ -1,0 +1,5 @@
+# OS X
+._*
+.DS_Store
+.vscode
+Thumbs.db

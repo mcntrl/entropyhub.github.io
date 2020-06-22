@@ -1,0 +1,45 @@
+/*******************************************************************************
+//
+//
+//
+//  #CASE STUDY EXCERPT
+//
+//
+//
+*******************************************************************************/
+
+.c-case-study-excerpt {
+    max-width: 320px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+
+    @include mq-at-least(lg) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .c-case-study-excerpt__description {
+        @include rem-fallback(margin-top, $base-spacing / 2);
+
+        font-size: 12px;
+
+        @include mq-at-least(lg) {
+            flex: 1;
+        }
+    }
+
+    .c-case-study-excerpt__name {
+        @include rem-fallback(margin-top, $base-spacing / 2);
+        @include font-size(30px, 36px)
+    }
+
+    .c-case-study-excerpt__type {
+        @extend %o-heading-ui;
+
+        @include rem-fallback(margin-top, $base-spacing);
+
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}

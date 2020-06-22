@@ -1,0 +1,24 @@
+/*******************************************************************************
+//
+//
+//
+//  #CONTENT
+//
+//
+//
+*******************************************************************************/
+
+$content: true;
+$content-breakpoints: (md);
+
+@if $content {
+    .u-w-max-none { max-width: none!important; }
+    .u-w-max-full { max-width: 100%!important; }
+
+    @each $content-breakpoint in $content-breakpoints {
+        @include mq-at-least($content-breakpoint) {
+            .u-w-max-#{$content-breakpoint}-none { max-width: none!important; }
+            .u-w-max-#{$content-breakpoint}-full { max-width: 100%!important; }
+        }
+    }
+}

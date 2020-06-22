@@ -1,0 +1,25 @@
+/*******************************************************************************
+//
+//
+//
+//  #COLOR
+//
+//
+//
+*******************************************************************************/
+
+$color: true;
+
+@if $color {
+    @each $colorName, $color in $colors {
+        .u-c-#{$colorName} { color: $color!important; }
+    }
+
+    @each $colorName, $color in $colors {
+        .u-c-hover-#{$colorName} {
+            &:hover {
+                color: $color!important; 
+            }
+        }
+    }
+}

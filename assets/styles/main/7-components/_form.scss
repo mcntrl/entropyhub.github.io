@@ -1,0 +1,119 @@
+/*******************************************************************************
+//
+//
+//
+//  #FORM
+//
+//
+//
+*******************************************************************************/
+
+.c-form {
+    .c-form__group,
+    %c-form__group { @include rem-fallback(margin-top, $base-spacing); }
+
+    .c-form__group--inline {
+        @extend %c-form__group;
+
+        @include mq-at-least(md) {
+            display: flex;
+            justify-content: space-between;
+            margin-right: -10px;
+            margin-left: -10px;
+        }
+
+        .c-form__group-item {
+            width: 100%;
+
+            @include mq-until(md) {
+                &:not(:first-child) {
+                    @include rem-fallback(margin-top, $base-spacing);
+                }
+            }
+
+            @include mq-at-least(md) {
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+        }
+    }
+
+    /***************************************************************************
+    //  #CHECKBOX AND RADIO
+    ***************************************************************************/
+
+    /*
+     *
+     *    HTML
+     *
+     *    <div class="c-form__checkbox">
+     *        <input id="checkbox-1" name="checkbox-1" type="checkbox" value="1">
+     *        <label for="checkbox-1">Checkbox 1</label>
+     *    </div>
+     *
+     *    <div class="c-form__radio">
+     *        <input id="radio-1" name="radio" type="radio" value="1">
+     *        <label for="radio-1">Radio 1</label>
+     *    </div>
+     *
+     */
+
+    .c-form__checkbox,
+    .c-form__radio {
+        display: inline-block;
+        padding-left: 21px;
+        margin: 0 ($base-spacing / 2) ($base-spacing / 4) 0;
+        position: relative;
+    }
+
+    .c-form__checkbox input[type='checkbox'],
+    .c-form__radio input[type='radio'] {
+        display: none;
+    }
+
+    .c-form__checkbox input[type='checkbox'] + label,
+    .c-form__radio input[type='radio'] + label {
+        @include font-size(16px, 24px);
+
+        display: block;
+        padding: 0 0 0 4px;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .c-form__checkbox input[type='checkbox'] + label:after,
+    .c-form__checkbox input[type='checkbox'] + label:before,
+    .c-form__radio input[type='radio'] + label:after,
+    .c-form__radio input[type='radio'] + label:before {
+        content: '';
+        display: block;
+        width: 16px;
+        height: 16px;
+        margin-top: 2px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    .c-form__radio input[type='radio'] + label:after,
+    .c-form__radio input[type='radio'] + label:before {
+        border-radius: 50%;
+    }
+
+    .c-form__checkbox input[type='checkbox'] + label:before,
+    .c-form__radio input[type='radio'] + label:before {
+        content: '';
+        background-color: map-get($colors, black);
+        border: 1px solid map-get($colors, white);
+    }
+
+    .c-form__checkbox input[type=checkbox]:checked + label:after,
+    .c-form__radio input[type=radio]:checked + label:after {
+        content: '';
+        background-color: map-get($colors, white);
+        border: 1px solid map-get($colors, white);
+    }
+}

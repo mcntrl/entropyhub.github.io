@@ -1,0 +1,33 @@
+/*******************************************************************************
+//
+//
+//
+//  #IMAGE
+//
+//
+//
+*******************************************************************************/
+
+figure {
+    @include rem-fallback(margin, $base-spacing 0 0);
+
+    figcaption {
+        @include rem-fallback(margin, ($base-spacing / 2) 0 0);
+    }
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0;
+
+    &[width],
+    &[height] {
+        max-width: none;
+        max-height: none;
+    }
+}
+
+picture,
+svg { display: block; }
+

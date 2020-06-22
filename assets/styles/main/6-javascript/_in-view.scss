@@ -1,0 +1,24 @@
+/*******************************************************************************
+//
+//
+//
+//  #IN VIEW
+//
+//
+//
+*******************************************************************************/
+
+.js-in-view {
+    html.js & {
+        &.-fade-in-up {
+            opacity: 0;
+            transform: translate(0, 50px);
+            transition: opacity .75s cubic-bezier(0.785, 0.135, 0.150, 0.860), transform .75s ease;
+
+            &.is-in-view {
+                opacity: 1;
+                transform: translate(0, 0);
+            }
+        }
+    }
+}

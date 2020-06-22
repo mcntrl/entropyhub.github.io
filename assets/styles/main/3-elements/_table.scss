@@ -1,0 +1,37 @@
+/*******************************************************************************
+//
+//
+//
+//  #TABLE
+//
+//
+//
+*******************************************************************************/
+
+table {
+    @include rem-fallback(margin, 0 0 $base-spacing);
+
+    width: 100%;
+    border-bottom: 1px solid gray;
+    border-right: 1px solid gray;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+th,
+td {
+    @include rem-fallback(padding, 8px);
+
+    text-align: left;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    vertical-align: middle;
+}
+
+caption {
+    @include rem-fallback(padding, 8px);
+
+    border-bottom: 0;
+}

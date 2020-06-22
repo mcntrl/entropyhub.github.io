@@ -1,0 +1,255 @@
+/*******************************************************************************
+//
+//
+//
+//  #JUMBOTRON
+//
+//
+//
+*******************************************************************************/
+
+.c-jumbotron {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    padding: 175px 0;
+    position: relative;
+    text-align: center;
+
+    .c-jumbotron__background-image {
+        max-width: none;
+    }
+
+    &.-purple-orange {
+        @extend %a-gradient;
+
+        background: linear-gradient(#{map-get($gradients, purple-orange)});
+    }
+
+    .c-jumbotron__heading {
+        @include rem-fallback(margin, 80px 0 40px);
+
+        width: 90%;
+
+        @include mq-at-least(md) {
+            @include rem-fallback(margin, 160px 0);
+        }
+
+        .c-jumbotron__heading-text {
+            margin: 0 auto;
+
+            html.js & {
+                width: 850px;
+                height: 425px;
+                text-indent: -9999px;
+                background-color: transparent;
+                background-position: 0 0;
+                background-repeat: no-repeat;
+                background-size: 850px 12325px;
+                transform-origin: left center;
+
+                @include mq-at-least(md) {
+                    width: 1600px;
+                    height: 250px;
+                    background-size: 1600px 7250px;
+                }
+            }
+
+            html.no-js & {
+                @include font-size-fluid(60px, 160px);
+
+                color: map-get($colors, white);
+                font-family: $font-code;
+                background-image: none;
+            }
+
+            &.-case-studies {
+                background-image: url('#{map-get($paths, images)}/sprite-text-case-studies-stacked.png');
+
+                @include mq-at-least(md) {
+                    background-image: url('#{map-get($paths, images)}/sprite-text-case-studies.png');
+                }
+            }
+
+            &.-contact-us {
+                background-image: url('#{map-get($paths, images)}/sprite-text-contact-us-stacked.png');
+
+                @include mq-at-least(md) {
+                    background-image: url('#{map-get($paths, images)}/sprite-text-contact-us.png');
+                }
+            }
+
+            &.-things-we-make {
+                background-image: url('#{map-get($paths, images)}/sprite-text-things-we-make-stacked.png');
+
+                @include mq-at-least(md) {
+                    background-image: url('#{map-get($paths, images)}/sprite-text-things-we-make.png');
+                }
+            }
+
+            &.-tools-we-build {
+                background-image: url('#{map-get($paths, images)}/sprite-text-tools-we-build-stacked.png');
+
+                @include mq-at-least(md) {
+                    background-image: url('#{map-get($paths, images)}/sprite-text-tools-we-build.png');
+                }
+            }
+
+            &.-our-news {
+                background-image: url('#{map-get($paths, images)}/sprite-text-our-news-stacked.png');
+
+                @include mq-at-least(md) {
+                    background-image: url('#{map-get($paths, images)}/sprite-text-our-news.png');
+                }
+            }
+
+            &.-what-we-do {
+                background-image: url('#{map-get($paths, images)}/sprite-text-what-we-do-stacked.png');
+
+                @include mq-at-least(md) {
+                    background-image: url('#{map-get($paths, images)}/sprite-text-what-we-do.png');
+                }
+            }
+
+            &.-who-we-are {
+                background-image: url('#{map-get($paths, images)}/sprite-text-who-we-are-stacked.png');
+                
+                @include mq-at-least(md) {
+                    background-image: url('#{map-get($paths, images)}/sprite-text-who-we-are.png');
+                }
+            }
+        }
+    }
+
+    .c-jumbotron__scroll-prompt {
+        display: inline-block;
+        padding-bottom: 16px;
+        position: relative;
+        font-size: 12px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+
+        &::after {
+            content: '';
+            width: 1px;
+            height: 46px;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            background: map-get($colors, white);
+        }
+    }
+
+    .layout-what-we-do & {
+        margin-bottom: 80px;
+
+        @include mq-at-least(md) {
+            margin-bottom: 285px;
+        }
+
+        .c-jumbotron__background-image {
+            position: absolute;
+
+            @include mq-until(md) {
+                width: 519px;
+                left: -234px;
+                bottom: 0;
+            }
+
+            @include mq-at-least(md) {
+                position: absolute;
+                left: 50%;
+                top: 100%;
+                transform: translate(calc(-100% - 90px), -50%);
+            }
+        }
+    }
+
+    .layout-who-we-are & {
+        margin-bottom: 175px;
+
+        .c-jumbotron__background-image {
+            position: absolute;
+
+            @include mq-until(md) {
+                width: 576px;
+                left: 50px;
+                top: 100%;
+                transform: translate(0, -50%);
+            }
+
+            @include mq-at-least(md) {
+                position: absolute;
+                right: 50%;
+                top: 100%;
+                transform: translate(calc(100% + 120px), -50%);
+            }
+        }
+    }
+
+    /***************************************************************************
+    //
+    //  #ANIMATION
+    //
+    ***************************************************************************/
+    .c-jumbotron__background-image {
+        html.js & {
+            opacity: 0;
+            transition: opacity 1s ease 2s;
+        }
+
+        .barba-container.is-enter & {
+            html.js & {
+                opacity: 1;
+            }
+        }
+    }
+
+    .c-jumbotron__scroll-prompt {
+        html.js & {
+            opacity: 0;
+            transform: translate(0, 25px);
+            transition: opacity .75s ease 1.5s, transform .75s ease 1.5s;
+        }
+
+        .barba-container.is-enter & {
+            html.js & {
+                opacity: 1;
+                transform: translate(0, 0);
+            }
+        }
+    }
+
+    .c-jumbotron__heading-text {
+        html.no-js & {
+            animation: text-construct-stacked 1.1s steps(28) forwards .5s;
+
+            @include mq-at-least(md) {
+                animation: text-construct 1.1s steps(28) forwards .5s;
+            }
+        }
+
+        .barba-container.is-enter & {
+            html.js & {
+                animation: text-construct-stacked 1.1s steps(28) forwards .5s;
+
+                @include mq-at-least(md) {
+                    animation: text-construct 1.1s steps(28) forwards .5s;
+                }
+            }
+        }
+    }
+}
+
+@keyframes text-construct-stacked {
+    0% { background-position-y: 0; }
+    100% { background-position-y: -11900px; }
+}
+
+@keyframes text-construct {
+    0% { background-position-y: 0; }
+    100% { background-position-y: -7000px; }
+}

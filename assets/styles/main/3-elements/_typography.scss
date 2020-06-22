@@ -1,0 +1,232 @@
+/*******************************************************************************
+//
+//
+//
+//  #TYPOGRAPHY
+//
+//
+//
+*******************************************************************************/
+
+/*******************************************************************************
+//
+//  #HEADINGS
+//
+*******************************************************************************/
+
+.h1, %h1, h1,
+.h2, %h2, h2,
+.h3, %h3, h3,
+.h4, %h4, h4,
+.h5, %h5, h5,
+.h6, %h6, h6 {
+    line-height: 1.2;
+    font-weight: 300;
+
+    a {
+        color: inherit;
+        font-weight: inherit;
+    }
+}
+
+.h1, %h1, h1,
+.h2, %h2, h2,
+.h3, %h3, h3 { @include rem-fallback(margin, $base-spacing 0 0); }
+
+.h4, %h4, h4,
+.h5, %h5, h5,
+.h6, %h6, h6 { @include rem-fallback(margin, ($base-spacing / 2) 0 0); }
+
+.h1, %h1, h1 {
+    $fontMin: strip-unit(nth(map-get($font-sizes, 7), 1));
+    $fontMax: strip-unit(nth(map-get($font-sizes, 7), 2));
+
+    font-size: calc((#{$fontMin} * 1px) + (#{$fontMax} - #{$fontMin}) * ((100vw - 320px) / (1440 - 320)));
+    line-height: 1.2;
+
+    @include mq-until(320px) {
+        font-size: $fontMin * 1px;
+    }
+
+    @include mq-at-least(1440px) {
+        font-size: $fontMax * 1px;
+    }
+}
+.h2, %h2, h2 {
+    $fontMin: strip-unit(nth(map-get($font-sizes, 6), 1));
+    $fontMax: strip-unit(nth(map-get($font-sizes, 6), 2));
+
+    font-size: calc((#{$fontMin} * 1px) + (#{$fontMax} - #{$fontMin}) * ((100vw - 320px) / (1440 - 320)));
+    line-height: 1.2;
+
+    @include mq-until(320px) {
+        font-size: $fontMin * 1px;
+    }
+
+    @include mq-at-least(1440px) {
+        font-size: $fontMax * 1px;
+    }
+}
+.h3, %h3, h3 {
+    $fontMin: strip-unit(nth(map-get($font-sizes, 5), 1));
+    $fontMax: strip-unit(nth(map-get($font-sizes, 5), 2));
+
+    font-size: calc((#{$fontMin} * 1px) + (#{$fontMax} - #{$fontMin}) * ((100vw - 320px) / (1440 - 320)));
+    line-height: 1.2;
+
+    @include mq-until(320px) {
+        font-size: $fontMin * 1px;
+    }
+
+    @include mq-at-least(1440px) {
+        font-size: $fontMax * 1px;
+    }
+}
+.h4, %h4, h4 {
+    $fontMin: strip-unit(nth(map-get($font-sizes, 4), 1));
+    $fontMax: strip-unit(nth(map-get($font-sizes, 4), 2));
+
+    font-size: calc((#{$fontMin} * 1px) + (#{$fontMax} - #{$fontMin}) * ((100vw - 320px) / (1440 - 320)));
+    line-height: 1.2;
+
+    @include mq-until(320px) {
+        font-size: $fontMin * 1px;
+    }
+
+    @include mq-at-least(1440px) {
+        font-size: $fontMax * 1px;
+    }
+}
+.h5, %h5, h5 {
+    $fontMin: strip-unit(nth(map-get($font-sizes, 3), 1));
+    $fontMax: strip-unit(nth(map-get($font-sizes, 3), 2));
+
+    font-size: calc((#{$fontMin} * 1px) + (#{$fontMax} - #{$fontMin}) * ((100vw - 320px) / (1440 - 320)));
+    line-height: 1.2;
+
+    @include mq-until(320px) {
+        font-size: $fontMin * 1px;
+    }
+
+    @include mq-at-least(1440px) {
+        font-size: $fontMax * 1px;
+    }
+}
+.h6, %h6, h6 {
+    $fontMin: strip-unit(nth(map-get($font-sizes, 2), 1));
+    $fontMax: strip-unit(nth(map-get($font-sizes, 2), 2));
+
+    font-size: calc((#{$fontMin} * 1px) + (#{$fontMax} - #{$fontMin}) * ((100vw - 320px) / (1440 - 320)));
+    line-height: 1.2;
+
+    @include mq-until(320px) {
+        font-size: $fontMin * 1px;
+    }
+
+    @include mq-at-least(1440px) {
+        font-size: $fontMax * 1px;
+    }
+}
+
+
+/*******************************************************************************
+//
+//  #PARAGRAPHS
+//
+*******************************************************************************/
+
+p { @include rem-fallback(margin, $base-spacing 0 0); }
+
+
+
+
+
+/*******************************************************************************
+//
+//  #ANCHORS
+//
+*******************************************************************************/
+
+a {
+    color: map-get($colors, white);
+    text-decoration: none;
+    outline: 0;
+
+    &:focus,
+    &:hover { color: $base-font-color; }
+}
+
+
+
+
+
+/*******************************************************************************
+//
+//  #FINE PRINTS
+//
+*******************************************************************************/
+
+abbr[title],
+abbr[data-original-title] {
+    border-bottom: 1px dotted gray;
+    cursor: help;
+}
+
+small { font-size: 80%; }
+
+sub,
+sup {
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+}
+
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+b,
+strong { font-weight: 700; }
+
+em { font-style: italic; }
+
+
+
+
+
+/*******************************************************************************
+//
+//  #CODE
+//
+*******************************************************************************/
+
+code,
+pre {
+    @include rem-fallback(padding, 0 3px 2px);
+
+    border: 1px solid gray;
+}
+
+code {
+    @include rem-fallback(padding, 2px 4px);
+
+    white-space: nowrap;
+}
+
+pre {
+    @include rem-fallback(padding, $base-spacing / 2);
+    @include rem-fallback(margin, $base-spacing 0 0);
+
+    display: block;
+    word-break: break-all;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+
+    code {
+        padding: 0;
+        color: inherit;
+        background: transparent;
+        border: 0;
+        white-space: pre-wrap;
+    }
+}

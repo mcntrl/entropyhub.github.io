@@ -1,0 +1,70 @@
+/*******************************************************************************
+//
+//
+//
+//  #BUTTON
+//
+//
+//
+*******************************************************************************/
+
+.c-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 228px;
+    height: 121px;
+    padding: 0;
+    transform: translate(-32px, 0);
+    transform-origin: left top;
+    color: map-get($colors, white);
+    font-size: 18px;
+    background-color: transparent;
+    background-image: url('#{map-get($paths, images)}/sprite-button-green.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 228px 3146px;
+    border: none;
+    animation: button-construct .9s steps(25);
+
+    &:hover {
+        animation: button-explode .9s steps(25) forwards;
+    }
+
+    &.-small {
+        font-size: 16px;
+    }
+
+    &.-center {
+        transform: translate(0, 0);
+        transform-origin: center top;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    &.-blue {
+        background-image: url('#{map-get($paths, images)}/sprite-button-blue.png');
+    }
+
+    &.-green {
+        background-image: url('#{map-get($paths, images)}/sprite-button-green.png');
+    }
+
+    &.-purple {
+        background-image: url('#{map-get($paths, images)}/sprite-button-purple.png');
+    }
+
+    &.-yellow {
+        background-image: url('#{map-get($paths, images)}/sprite-button-yellow.png');
+    }
+}
+
+@keyframes button-explode {
+    0% { background-position-y: 0px; }
+    100% { background-position-y: -3025px; }
+}
+
+@keyframes button-construct {
+    0% { background-position-y: -3025px; }
+    100% { background-position-y: 0; }
+}

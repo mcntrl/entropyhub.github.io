@@ -1,0 +1,99 @@
+/*******************************************************************************
+//
+//
+//
+//  #CARD
+//
+//
+//
+*******************************************************************************/
+
+.c-card {
+    max-width: 660px;
+
+    .c-card__border {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .c-card__main {
+        padding-bottom: 30px;
+        position: relative;
+
+        @include mq-at-least(md) {
+            padding-bottom: 60px;
+        }
+    }
+
+    .c-card__media {
+        @include mq-at-least(md) {
+            display: flex;
+        }
+
+        .c-card__media-image {
+            flex-shrink: 0;
+            text-align: left;
+
+            @include mq-at-least(md) {
+                width: 40%;
+            }
+
+            img {
+                max-width: 180px;
+                margin-top: 10px;
+            }
+        }
+
+        .c-card__media-text-block {
+            @include last-child() {
+                margin-bottom: 0;
+            }
+
+            @include mq-until(md) {
+                @include rem-fallback(margin-top, $base-spacing)
+            }
+
+            @include mq-at-least(md) {
+                width: 58%;
+            }
+        }
+
+        &.-icon-right {
+            .c-card__media-image {
+                @include mq-at-least(md) {
+                    margin-left: 60%;
+                }
+            }
+
+            .c-card__media-text-block {
+                @include mq-at-least(md) {
+                    margin-left: -100%;
+                }
+            }
+        }
+    }
+
+    .c-card__icons {
+        @include rem-fallback(margin-top, $base-spacing);
+
+        margin-right: -10px;
+        margin-left: -10px;
+
+        & > * {
+            margin-right: 10px;
+            margin-left: 10px;
+
+            @include mq-until(md) {
+                margin-top: 66px;
+            }
+        }
+
+        @include mq-at-least(md) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}

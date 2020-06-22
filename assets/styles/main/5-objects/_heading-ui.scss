@@ -1,0 +1,56 @@
+/*******************************************************************************
+//
+//
+//
+//  #HEADING UI
+//
+//
+//
+*******************************************************************************/
+
+.o-heading-ui,
+%o-heading-ui {
+    display: inline-block;
+    position: relative;
+    font-family: $font-poppins;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+
+    &.-tail-left {
+        padding-left: 1.5em;
+
+        &::after {
+            content: '—';
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &.-tail-left--offset {
+        padding-left: 1.5em;
+
+        @include mq-at-least(md) {
+            margin-left: -1.5em;
+        }
+
+        &::after {
+            content: '—';
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &.-tail-right {
+        padding-right: 1.5em;
+
+        &::after {
+            content: '—';
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+}

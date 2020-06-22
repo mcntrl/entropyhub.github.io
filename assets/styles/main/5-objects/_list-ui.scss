@@ -1,0 +1,28 @@
+/*******************************************************************************
+//
+//
+//
+//  #LIST UI
+//
+//
+//
+*******************************************************************************/
+
+.o-list-ui,
+%o-list-ui {
+    @include list-unstyle();
+}
+
+.o-list-ui--inline {
+    @extend %o-list-ui;
+
+    display: flex;
+
+    li {
+        &:not(:last-child) {
+            @include rem-fallback(margin-right, $base-spacing);
+
+            margin-bottom: 0;
+        }
+    }
+}

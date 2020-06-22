@@ -1,0 +1,55 @@
+/*******************************************************************************
+//
+//
+//
+//  #MAIN
+//
+//
+//
+*******************************************************************************/
+
+.c-main {
+    position: relative;
+    z-index: map-get($z-index, main);
+    flex: 1;
+    background: map-get($colors, black);
+
+    .c-main__background {
+        position: absolute;
+        z-index: -1;
+
+        html.no-js & {
+            display: none;
+        }
+
+        &#main-background-circle-1 {
+            top: 0;
+            left: calc(50% + 300px);
+        }
+
+        &#main-background-circle-2 {
+            top: 0;
+            right: calc(50% + 300px);
+        }
+
+        &#main-background-circle-3 {
+            top: 0;
+            left: calc(50% + 300px);
+        }
+
+        &#main-background-pill-1 {
+            top: 0;
+            right: calc(50% + 300px);
+        }
+
+        &#main-background-pill-2 {
+            top: 0;
+            left: calc(50% + 300px);
+        }
+
+        &#main-background-pill-3 {
+            top: 0;
+            right: calc(50% + 300px);
+        }
+    }
+}

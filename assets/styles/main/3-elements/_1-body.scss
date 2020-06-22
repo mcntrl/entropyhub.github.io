@@ -1,0 +1,17 @@
+/*******************************************************************************
+//
+//
+//
+//  #BODY
+//
+//
+//
+*******************************************************************************/
+
+body {
+    @include font-size($base-font-size, $base-line-height);
+
+    color: $base-font-color;
+    font-family: $base-font;
+    background-color: map-get($colors, black);
+}

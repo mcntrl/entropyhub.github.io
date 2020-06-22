@@ -1,0 +1,28 @@
+/*******************************************************************************
+//
+//
+//
+//  #ICON OVER IMAGE
+//
+//
+//
+*******************************************************************************/
+
+.c-icon-over-image {
+    padding-top: 51px;
+    position: relative;
+
+    .c-icon-over-image__icon {
+        position: absolute;
+        top: -74px;
+        right: 20px;
+    }
+
+    .c-icon-over-image__image {
+        @include mq-at-least(md) {
+            float: right;
+            width: 737px;
+            max-width: none;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+/*******************************************************************************
+//
+//
+//
+//  #FOOTER
+//
+//
+//
+*******************************************************************************/
+
+.c-footer {
+    @extend %a-gradient;
+
+    position: relative;
+    z-index: map-get($z-index, footer);
+    padding-top: 90px - $base-spacing;
+    padding-bottom: 90px;
+    background: linear-gradient(#{map-get($gradients, green-blue)});
+
+    &,
+    a {
+        color: map-get($colors, black);
+    }
+}

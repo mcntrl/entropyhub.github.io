@@ -1,0 +1,39 @@
+/*******************************************************************************
+//
+//
+//
+//  #CONTAINER
+//
+//
+//
+*******************************************************************************/
+
+.l-container {
+    @include clearfix();
+
+    width: 100%;
+    max-width: 2014px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $grid-gutter-width / 2;
+    padding-right: $grid-gutter-width / 2;
+
+    @include mq-at-least(md) {
+        padding-left: 8.3333333333%;
+        padding-right: 8.3333333333%;
+    }
+}
+
+@if $grid-fluid == 'false' {
+    @media(min-width: 768px) {
+        .l-container { width: 738px; }
+    }
+
+    @media (min-width: 980px) {
+        .l-container { width: 950px; }
+    }
+
+    @media (min-width: 1200px) {
+        .l-container { width: 1170px; }
+    }
+}

@@ -1,0 +1,39 @@
+/*******************************************************************************
+//
+//
+//
+//  #ARTICLE EXCERPT
+//
+//
+//
+*******************************************************************************/
+
+.c-article-excerpt {
+    @include rem-fallback(padding-top, 80px - $base-spacing);
+    @include rem-fallback(padding-bottom, 80px);
+
+    @include mq-at-least(lg) {
+        @include rem-fallback(padding-top, 125px - $base-spacing);
+        @include rem-fallback(padding-bottom, 125px);
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .c-article-excerpt__main {
+        max-width: 320px;
+
+        @include mq-at-least(lg) {
+            flex: 1;
+        }
+    }
+
+    .c-article-excerpt__footer {
+        padding-bottom: 26px;
+        border-bottom: 2px solid map-get($colors, green);
+
+        @include mq-at-least(md) {
+            width: 80%;
+        }
+    }
+}

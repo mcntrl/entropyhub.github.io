@@ -1,0 +1,41 @@
+/*******************************************************************************
+//
+//
+//
+//  #MEDIA SHAPE
+//
+//
+//
+*******************************************************************************/
+
+.c-media-shape {
+    %c-media-shape__image {
+        max-width: none;
+    }
+
+    .c-media-shape__image--left {
+        @extend %c-media-shape__image;
+
+        @include mq-until(md) {
+            width: 400px;
+            margin: 0 0 90px 0;
+            transform: translate(-160px, 0);
+        }
+
+        @include mq-at-least(md) {
+            float: right;
+            max-width: none;
+        }
+    }
+
+    .c-media-shape__image--right {
+        @extend %c-media-shape__image;
+
+        @include mq-until(md) {
+            float: right;
+            width: 520px;
+            margin: 0 0 90px 30px;
+            transform: translate(191px, 0);
+        }
+    }
+}

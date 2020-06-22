@@ -1,0 +1,14 @@
+<svg class="svg-icon-cross" xmlns="http://www.w3.org/2000/svg" width="22.85" height="23.35" viewBox="0 0 22.85 23.35">
+  <defs>
+    <style>
+      .svg-icon-cross__line {
+        fill: none;
+        stroke: #030d11;
+        stroke-linecap: round;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <line class="svg-icon-cross__line" x1="1.5" y1="21.85" x2="21.35" y2="1.5"/>
+  <line class="svg-icon-cross__line" x1="1.5" y1="1.5" x2="21.35" y2="21.85"/>
+</svg>

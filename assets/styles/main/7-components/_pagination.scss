@@ -1,0 +1,61 @@
+/*******************************************************************************
+//
+//
+//
+//  #PAGINATION
+//
+//
+//
+*******************************************************************************/
+
+.c-pagination {
+
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    margin-top: 60px;
+    border-top: 2px solid map-get($colors, green);
+
+    & > a {
+        display: flex;
+        align-items: center;
+        position: relative;
+        color: map-get($colors, green);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        transition: color 0.5s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+
+        svg {
+            fill: map-get($colors, green);
+            transition: fill 0.5s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+        }
+
+        .c-pagination__text {
+            margin: 0 12px;
+        }
+
+        &.c-pagination__next {
+            margin-left: auto;
+        }
+
+        &:hover {
+            color: map-get($colors, white)!important;
+
+            svg { fill: map-get($colors, white)!important; }
+        }
+    }
+
+    @each $colorName, $color in $colors {
+        &.-#{$colorName} {
+            border-color: $color;
+
+            & > a {
+                color: $color;
+
+                svg { fill: $color; }
+            }
+        }
+    }
+}

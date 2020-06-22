@@ -1,0 +1,55 @@
+/*******************************************************************************
+//
+//
+//
+//  #BUTTON
+//
+//
+//
+*******************************************************************************/
+
+.c-button-contact-us {
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    z-index: map-get($z-index, buttonContactUs);
+
+    @include mq-at-least(md) {
+        bottom: 34px;
+        left: 34px;
+    }
+
+    &::before {
+        @extend %o-heading-ui;
+
+        content: 'Get In Touch';
+        position: absolute;
+        top: 50%;
+        left: calc(100% + 16px);
+        transform: translate(0, -50%);
+        color: map-get($colors, green);
+        font-size: 12px;
+        line-height: 1;
+        white-space: nowrap;
+        opacity: 0;
+        transition: all 0.5s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+    }
+
+    .svg-icon-speech-bubble {
+        .svg-icon-speech-bubble__background {
+            transition: all 0.5s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+        }
+    }
+
+    &:hover {
+        &::before {
+            opacity: 1;
+        }
+
+        .svg-icon-speech-bubble {
+            .svg-icon-speech-bubble__background {
+                fill: map-get($colors, green);
+            }
+        }
+    }
+}

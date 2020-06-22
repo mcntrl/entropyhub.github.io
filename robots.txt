@@ -1,0 +1,3 @@
+Sitemap: https://entropy.kennytran.com/sitemap.xml
+User-agent: *
+Disallow:

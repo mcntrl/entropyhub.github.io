@@ -1,0 +1,207 @@
+/*******************************************************************************
+//
+//
+//
+//  #HEADER
+//
+//
+//
+*******************************************************************************/
+
+.c-header {
+    padding: 28px 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: map-get($z-index, header);
+
+    @include mq-at-least(md) {
+        padding-top: 36px;
+        padding-bottom: 36px;
+    }
+
+    .c-header__logo {
+        z-index: map-get($z-index, logo);
+
+        .svg-logo-entropy {
+            .svg-logo-entropy__cursor {
+                fill: map-get($colors, white);
+                animation: cursor 1s infinite;
+            }
+
+            .svg-logo-entropy__text-top {
+                fill: map-get($colors, white);
+            }
+
+            .svg-logo-entropy__text-bottom {
+                transition: opacity 1s ease;
+
+                &.-blue-green,
+                &.-orange-purple { opacity: 0; }
+                &.-white { opacity: 1; }
+
+                #barba-wrapper.theme-blue-green & {
+                    &.-blue-green { opacity: 1; }
+
+                    &.-orange-purple,
+                    &.-white { opacity: 0; }
+                }
+
+                #barba-wrapper.theme-orange-purple & {
+                    &.-orange-purple { opacity: 1; }
+
+                    &.blue-green,
+                    &.-white { opacity: 0; }
+                }
+
+                body.is-nav-open & {
+                    &.-blue-green,
+                    &.-orange-purple { opacity: 0!important; }
+
+                    &.-white { opacity: 1!important; }
+                }
+            }
+        }
+
+        &:hover {
+            .svg-logo-entropy {
+                .svg-logo-entropy__text-bottom {
+                    &.-blue-green,
+                    &.-orange-purple { opacity: 0!important; }
+
+                    &.-white { opacity: 1!important; }
+                }
+            }
+        }
+    }
+
+    .c-header__nav-trigger {
+        padding: 0;
+        margin-left: auto;
+        position: absolute;
+        top: 12px;
+        right: 10px;
+        border: 0;
+        background: none;
+        z-index: map-get($z-index, navTrigger);
+
+        @include mq-at-least(md) {
+            top: 36px;
+            right: 50px;
+        }
+
+        @include mq-at-least(xl) {
+            right: 130px;
+        }
+
+        .svg-icon-cross {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+
+            html.js & {
+                transition: all 0.5s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+            }
+        }
+
+        .svg-icon-menu {
+            transition: all 0.5s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+
+            .svg-icon-menu__icon,
+            .svg-icon-menu__label {
+                transform-origin: center center;
+            }
+
+            .svg-icon-menu__icon-bottom {
+                transition: opacity 1s ease;
+
+                &.-blue-green,
+                &.-orange-purple { opacity: 0; }
+                &.-white { opacity: 1; }
+
+                #barba-wrapper.theme-blue-green & {
+                    &.-blue-green { opacity: 1; }
+
+                    &.-orange-purple,
+                    &.-white { opacity: 0; }
+                }
+
+                #barba-wrapper.theme-orange-purple & {
+                    &.-orange-purple { opacity: 1; }
+
+                    &.blue-green,
+                    &.-white { opacity: 0; }
+                }
+
+                body.is-nav-open & {
+                    &.-blue-green,
+                    &.-orange-purple { opacity: 0!important; }
+
+                    &.-white { opacity: 1!important; }
+                }
+            }
+
+            .svg-icon-menu__icon-top {
+                fill: map-get($colors, white);
+            }
+
+            .svg-icon-menu__label-background {
+                fill: none;
+            }
+
+            .svg-icon-menu__label-text {
+                fill: map-get($colors, white);
+            }
+
+            @include mq-until(md) {
+                transform: scale(.75);
+            }
+        }
+
+        &:hover {
+            .svg-icon-menu {
+                .svg-icon-menu__icon-bottom {
+                    &.-blue-green,
+                    &.-orange-purple { opacity: 0!important; }
+
+                    &.-white { opacity: 1!important; }
+                }
+            }
+        }
+    }
+
+    .c-header__wrapper {
+        display: flex;
+        align-items: center;
+
+        @include mq-at-least(md) {
+            justify-content: center;
+        }
+    }
+
+    body.is-nav-open & {
+        .svg-icon-cross {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .svg-icon-menu {
+            transform: scale(0);
+        }
+    }
+}
+
+@keyframes cursor {
+    0% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.2;
+    }
+}

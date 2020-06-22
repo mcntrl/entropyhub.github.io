@@ -1,0 +1,59 @@
+//******************************************************************************
+//
+//
+//
+//  #FONTS
+//
+//
+//
+//******************************************************************************
+
+@import url('//fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+@font-face {
+    font-family: 'Code Sans';
+    src: url('#{map-get($paths, fonts)}/CodeSansBold.woff2') format('woff2'),
+         url('#{map-get($paths, fonts)}/CodeSansBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Code Sans';
+    src: url('#{map-get($paths, fonts)}/CodeSansRegular.woff2') format('woff2'),
+         url('#{map-get($paths, fonts)}/CodeSansRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$font-arial: Arial, Helvetica, sans-serif;
+$font-code: 'Code Sans', Arial, Helvetica, sans-serif;
+$font-helvetica: Helvetica, Arial, sans-serif;
+$font-monaco: Monaco, Menlo, Consolas, 'Courier New', monospace;
+$font-poppins: 'Poppins', Arial, Helvetica, sans-serif;
+
+$font-weight-light: 300!default;
+$font-weight-normal: 400!default;
+$font-weight-bold: 700!default;
+
+$font-sizes: (
+    0: (12px, 12px),
+    1: (12px, 14px),
+    2: (14px, 16px),
+    3: (16px, 18px),
+    4: (16px, 20px),
+    5: (20px, 24px),
+    6: (24px, 30px),
+    7: (30px, 38px),
+    8: (40px, 48px),
+    9: (48px, 68px),
+    10: (68px, 72px),
+    11: (40px, 104px)
+);
+
+$h1-font-size: 7px;
+$h2-font-size: 6px;
+$h3-font-size: 5px;
+$h4-font-size: 4px;
+$h5-font-size: 3px;
+$h6-font-size: 2px;

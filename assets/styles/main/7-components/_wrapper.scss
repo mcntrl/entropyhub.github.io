@@ -1,0 +1,26 @@
+/*******************************************************************************
+//
+//
+//
+//  #WRAPPER
+//
+//
+//
+*******************************************************************************/
+
+.c-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    opacity: 1;
+    transition: opacity 1s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+
+    html.is-exit & {
+        opacity: 0;
+    }
+
+    html.is-dom-loading & {
+        opacity: 0;
+    }
+}
