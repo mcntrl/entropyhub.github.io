@@ -1,3 +1,4 @@
 {
-   "api_host":"https://stage-api.forpaws.com/"
+   "api_host":"https://stage-api.forpaws.com/",
+   "link_host": "https://stage.forpaws.com"
 }
