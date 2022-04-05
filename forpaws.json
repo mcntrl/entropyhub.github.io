@@ -1,4 +1,8 @@
 {
    "api_host":"https://stage-api.forpaws.com",
-   "link_host": "https://stage.forpaws.com"
+   "link_host": "https://stage.forpaws.com",
+   "released_build_versions": {
+      "ios": 11,
+      "android": 12
+   }
 }
