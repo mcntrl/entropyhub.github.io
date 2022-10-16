@@ -1110,7 +1110,7 @@ video {
   font-weight: 700;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-}
+  }
 
 .o-heading-ui.-tail-left,
 .-tail-left.c-button-contact-us::before,
@@ -10395,4 +10395,8 @@ html.is-dom-loading .c-wrapper {
 
 h1.come-in-text{
     margin-top: -20px;
+}
+
+.c-case-study-excerpt{
+  height: 180px;
 }
