@@ -2800,7 +2800,7 @@ html.js .barba-container.is-enter .c-jumbotron .c-jumbotron__heading-text {
   position: relative;
   z-index: 1;
   flex: 1;
-  background: #030D11;
+  /* background: #030D11; */
 }
 
 .c-main .c-main__background {
@@ -4015,7 +4015,7 @@ html.js .barba-container.is-enter .c-jumbotron .c-jumbotron__heading-text {
   position: relative;
   z-index: 1;
   flex: 1;
-  background: #030D11;
+  /* background: #030D11; */
 }
 
 .c-main .c-main__background {
