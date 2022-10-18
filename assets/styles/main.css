@@ -2019,6 +2019,16 @@ html.js .js-in-view.-fade-in-up.is-in-view {
   line-height: 1.5;
 }
 
+.c-case-study-excerpt__logo {
+  background-color: rgba(255, 255, 255, 0.06);
+  width: 175px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
 /*******************************************************************************
 //
 //
