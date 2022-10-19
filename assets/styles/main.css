@@ -1557,6 +1557,25 @@ html.js .js-in-view.-fade-in-up.is-in-view {
   }
 }
 
+.center-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 228px;
+  height: 121px;
+  padding: 0;
+  transform-origin: left top;
+  color: #fff;
+  font-size: 18px;
+  background-color: transparent;
+  background-image: url("/assets/images/compressed/sprite-button-green.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 228px 3146px;
+  border: none;
+  animation: button-construct 0.9s steps(25);
+}
+
 /*******************************************************************************
 //
 //
@@ -1802,6 +1821,10 @@ html.js .js-in-view.-fade-in-up.is-in-view {
 }
 
 .c-button.-blue {
+  background-image: url("/assets/images/compressed/sprite-button-blue.png");
+}
+
+.center-button.-blue {
   background-image: url("/assets/images/compressed/sprite-button-blue.png");
 }
 
