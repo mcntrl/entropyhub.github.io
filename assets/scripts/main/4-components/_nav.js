@@ -107,7 +107,7 @@ var Nav = (function() {
                         .on('exit', function(element) {
 
                         });
-        
+
                     inView.offset(100);
 
                     $oldContainer.one(global.transitionEnd, function() {
