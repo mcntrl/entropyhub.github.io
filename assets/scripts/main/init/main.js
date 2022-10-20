@@ -48,6 +48,8 @@
         
         inView.offset(100);
 
+        $('.c-header__logo').addClass('hidden');
+        
         $.stellar({
             horizontalScrolling: false,
             positionProperty: 'transform',
