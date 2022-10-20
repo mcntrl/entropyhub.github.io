@@ -1957,8 +1957,9 @@ var NavTrigger = (function() {
         });
     
         window.addEventListener('scroll', function() {
-            $navTriggerIcon.style.transform = 'rotate(' + (window.pageYOffset / 6) + 'deg)';
-            $navTriggerLabel.style.transform = 'rotate(' + (window.pageYOffset / -6) + 'deg)';
+        //    TODO: rotation
+			// $navTriggerIcon.style.transform = 'rotate(' + (window.pageYOffset / 6) + 'deg)';
+            // $navTriggerLabel.style.transform = 'rotate(' + (window.pageYOffset / -6) + 'deg)';
         });
     };
     var close = function() {
