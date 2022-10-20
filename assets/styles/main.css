@@ -10437,3 +10437,34 @@ h1.come-in-text{
 .c-case-study-excerpt{
   height: 180px;
 }
+
+
+/* fade in */
+
+.elementToFadeIn {
+  -webkit-animation: fadein 4s linear forwards;
+  animation: fadein 4s linear forwards;
+  opacity: 0;
+}
+
+@-webkit-keyframes fadein {
+50% { opacity: 1; }
+}
+
+@keyframes fadein {
+50% { opacity: 1; }
+}
+
+.elementToFadeOut {
+  -webkit-animation: fadein 4s linear forwards;
+  animation: fadein 4s linear forwards;
+  opacity: 1;
+}
+
+@-webkit-keyframes fadein {
+50% { opacity: 0; }
+}
+
+@keyframes fadein {
+50% { opacity: 0; }
+}

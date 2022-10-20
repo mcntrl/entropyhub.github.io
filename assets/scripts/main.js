@@ -2060,10 +2060,12 @@ var Nav = (function() {
     };
     var init = function() {
         Barba.Pjax.start();
+		
         var FadeTransition = Barba.BaseTransition.extend({
             start: function() {
                 // Destroy plugins
                 $.stellar('destroy');
+
                 if($(document).height() > $(window).height()) {
                     var scrollTop = ($('html').scrollTop()) ? $('html').scrollTop() : $('body').scrollTop();
                     $('html').addClass('is-no-scroll').css('top', -scrollTop);
@@ -2089,8 +2091,9 @@ var Nav = (function() {
                             $(element).addClass('is-in-view');
                         })
                         .on('exit', function(element) {
+						
                         });
-        
+					
                     inView.offset(100);
                     $oldContainer.one(global.transitionEnd, function() {
                         $('html, body').scrollTop(0);
@@ -2140,6 +2143,19 @@ var Nav = (function() {
             global.$html[0].classList.remove('is-disable-animations');
         }, 400);
     });
+
+	// basic fadeout
+   $(window).scroll( function() {
+		if( $(this).scrollTop() > 600 ) {
+		$('.c-header__logo').removeClass('.elementToFadeOut').addClass('elementToFadeIn')
+
+		}
+		else {
+		$('.c-header__logo').removeClass('.elementToFadeIn').addClass('elementToFadeOut')
+
+		} 
+	});
+
     $(window).load(function() {
         Nav.init();
         NavTrigger.init();
@@ -2149,6 +2165,7 @@ var Nav = (function() {
                 $(element).addClass('is-in-view');
             })
             .on('exit', function(element) {
+
             });
         
         inView.offset(100);
