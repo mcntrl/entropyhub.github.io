@@ -10468,3 +10468,13 @@ h1.come-in-text{
 @keyframes fadein {
 50% { opacity: 0; }
 }
+
+@keyframes elementTofadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

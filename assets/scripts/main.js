@@ -54,11 +54,11 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 	//Promise polyfill https://github.com/taylorhakes/promise-polyfill
-	
+
 	if (typeof Promise !== 'function') {
 	 window.Promise = __webpack_require__(1);
 	}
-	
+
 	var Barba = {
 	  version: '1.0.0',
 	  BaseTransition: __webpack_require__(4),
@@ -70,39 +70,39 @@ return /******/ (function(modules) { // webpackBootstrap
 	  Prefetch: __webpack_require__(13),
 	  Utils: __webpack_require__(5)
 	};
-	
+
 	module.exports = Barba;
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 	/* WEBPACK VAR INJECTION */(function(setImmediate) {(function (root) {
-	
+
 	  // Store setTimeout reference so promise-polyfill will be unaffected by
 	  // other code modifying setTimeout (like sinon.useFakeTimers())
 	  var setTimeoutFunc = setTimeout;
-	
+
 	  function noop() {
 	  }
-	
+
 	  // Use polyfill for setImmediate for performance gains
 	  var asap = (typeof setImmediate === 'function' && setImmediate) ||
 	    function (fn) {
 	      setTimeoutFunc(fn, 0);
 	    };
-	
+
 	  var onUnhandledRejection = function onUnhandledRejection(err) {
 	    if (typeof console !== 'undefined' && console) {
 	      console.warn('Possible Unhandled Promise Rejection:', err); // eslint-disable-line no-console
 	    }
 	  };
-	
+
 	  // Polyfill for Function.prototype.bind
 	  function bind(fn, thisArg) {
 	    return function () {
 	      fn.apply(thisArg, arguments);
 	    };
 	  }
-	
+
 	  function Promise(fn) {
 	    if (typeof this !== 'object') throw new TypeError('Promises must be constructed via new');
 	    if (typeof fn !== 'function') throw new TypeError('not a function');
@@ -110,10 +110,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this._handled = false;
 	    this._value = undefined;
 	    this._deferreds = [];
-	
+
 	    doResolve(fn, this);
 	  }
-	
+
 	  function handle(self, deferred) {
 	    while (self._state === 3) {
 	      self = self._value;
@@ -139,7 +139,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      resolve(deferred.promise, ret);
 	    });
 	  }
-	
+
 	  function resolve(self, newValue) {
 	    try {
 	      // Promise Resolution Procedure: https://github.com/promises-aplus/promises-spec#the-promise-resolution-procedure
@@ -163,13 +163,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      reject(self, e);
 	    }
 	  }
-	
+
 	  function reject(self, newValue) {
 	    self._state = 2;
 	    self._value = newValue;
 	    finale(self);
 	  }
-	
+
 	  function finale(self) {
 	    if (self._state === 2 && self._deferreds.length === 0) {
 	      asap(function() {
@@ -178,19 +178,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      });
 	    }
-	
+
 	    for (var i = 0, len = self._deferreds.length; i < len; i++) {
 	      handle(self, self._deferreds[i]);
 	    }
 	    self._deferreds = null;
 	  }
-	
+
 	  function Handler(onFulfilled, onRejected, promise) {
 	    this.onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : null;
 	    this.onRejected = typeof onRejected === 'function' ? onRejected : null;
 	    this.promise = promise;
 	  }
-	
+
 	  /**
 	   * Take a potentially misbehaving resolver function and make sure
 	   * onFulfilled and onRejected are only called once.
@@ -215,25 +215,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	      reject(self, ex);
 	    }
 	  }
-	
+
 	  Promise.prototype['catch'] = function (onRejected) {
 	    return this.then(null, onRejected);
 	  };
-	
+
 	  Promise.prototype.then = function (onFulfilled, onRejected) {
 	    var prom = new (this.constructor)(noop);
-	
+
 	    handle(this, new Handler(onFulfilled, onRejected, prom));
 	    return prom;
 	  };
-	
+
 	  Promise.all = function (arr) {
 	    var args = Array.prototype.slice.call(arr);
-	
+
 	    return new Promise(function (resolve, reject) {
 	      if (args.length === 0) return resolve([]);
 	      var remaining = args.length;
-	
+
 	      function res(i, val) {
 	        try {
 	          if (val && (typeof val === 'object' || typeof val === 'function')) {
@@ -253,29 +253,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	          reject(ex);
 	        }
 	      }
-	
+
 	      for (var i = 0; i < args.length; i++) {
 	        res(i, args[i]);
 	      }
 	    });
 	  };
-	
+
 	  Promise.resolve = function (value) {
 	    if (value && typeof value === 'object' && value.constructor === Promise) {
 	      return value;
 	    }
-	
+
 	    return new Promise(function (resolve) {
 	      resolve(value);
 	    });
 	  };
-	
+
 	  Promise.reject = function (value) {
 	    return new Promise(function (resolve, reject) {
 	      reject(value);
 	    });
 	  };
-	
+
 	  Promise.race = function (values) {
 	    return new Promise(function (resolve, reject) {
 	      for (var i = 0, len = values.length; i < len; i++) {
@@ -283,7 +283,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    });
 	  };
-	
+
 	  /**
 	   * Set the immediate function to execute callbacks
 	   * @param fn {function} Function to execute
@@ -292,19 +292,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	  Promise._setImmediateFn = function _setImmediateFn(fn) {
 	    asap = fn;
 	  };
-	
+
 	  Promise._setUnhandledRejectionFn = function _setUnhandledRejectionFn(fn) {
 	    onUnhandledRejection = fn;
 	  };
-	
+
 	  if (typeof module !== 'undefined' && module.exports) {
 	    module.exports = Promise;
 	  } else if (!root.Promise) {
 	    root.Promise = Promise;
 	  }
-	
+
 	})(this);
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).setImmediate))
 /***/ },
 /* 2 */
@@ -314,9 +314,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var slice = Array.prototype.slice;
 	var immediateIds = {};
 	var nextImmediateId = 0;
-	
+
 	// DOM APIs, for completeness
-	
+
 	exports.setTimeout = function() {
 	  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
 	};
@@ -325,7 +325,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	exports.clearTimeout =
 	exports.clearInterval = function(timeout) { timeout.close(); };
-	
+
 	function Timeout(id, clearFn) {
 	  this._id = id;
 	  this._clearFn = clearFn;
@@ -334,21 +334,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	Timeout.prototype.close = function() {
 	  this._clearFn.call(window, this._id);
 	};
-	
+
 	// Does not start the time, just sets up the members needed.
 	exports.enroll = function(item, msecs) {
 	  clearTimeout(item._idleTimeoutId);
 	  item._idleTimeout = msecs;
 	};
-	
+
 	exports.unenroll = function(item) {
 	  clearTimeout(item._idleTimeoutId);
 	  item._idleTimeout = -1;
 	};
-	
+
 	exports._unrefActive = exports.active = function(item) {
 	  clearTimeout(item._idleTimeoutId);
-	
+
 	  var msecs = item._idleTimeout;
 	  if (msecs >= 0) {
 	    item._idleTimeoutId = setTimeout(function onTimeout() {
@@ -357,14 +357,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, msecs);
 	  }
 	};
-	
+
 	// That's not how node.js implements it but the exposed api is the same.
 	exports.setImmediate = typeof setImmediate === "function" ? setImmediate : function(fn) {
 	  var id = nextImmediateId++;
 	  var args = arguments.length < 2 ? false : slice.call(arguments, 1);
-	
+
 	  immediateIds[id] = true;
-	
+
 	  nextTick(function onNextTick() {
 	    if (immediateIds[id]) {
 	      // fn.call() is faster so we optimize for the common use-case
@@ -378,10 +378,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      exports.clearImmediate(id);
 	    }
 	  });
-	
+
 	  return id;
 	};
-	
+
 	exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate : function(id) {
 	  delete immediateIds[id];
 	};
@@ -390,17 +390,17 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 3 */
 /***/ function(module, exports) {
 	// shim for using process in browser
-	
+
 	var process = module.exports = {};
-	
+
 	// cached from whatever global is present so that test runners that stub it
 	// don't break things.  But we need to wrap it in a try catch in case it is
 	// wrapped in strict mode code which doesn't define any globals.  It's inside a
 	// function because try/catches deoptimize in certain engines.
-	
+
 	var cachedSetTimeout;
 	var cachedClearTimeout;
-	
+
 	(function () {
 	  try {
 	    cachedSetTimeout = setTimeout;
@@ -421,7 +421,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var draining = false;
 	var currentQueue;
 	var queueIndex = -1;
-	
+
 	function cleanUpNextTick() {
 	    if (!draining || !currentQueue) {
 	        return;
@@ -436,14 +436,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        drainQueue();
 	    }
 	}
-	
+
 	function drainQueue() {
 	    if (draining) {
 	        return;
 	    }
 	    var timeout = cachedSetTimeout(cleanUpNextTick);
 	    draining = true;
-	
+
 	    var len = queue.length;
 	    while(len) {
 	        currentQueue = queue;
@@ -460,7 +460,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    draining = false;
 	    cachedClearTimeout(timeout);
 	}
-	
+
 	process.nextTick = function (fun) {
 	    var args = new Array(arguments.length - 1);
 	    if (arguments.length > 1) {
@@ -473,7 +473,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        cachedSetTimeout(drainQueue, 0);
 	    }
 	};
-	
+
 	// v8 likes predictible objects
 	function Item(fun, array) {
 	    this.fun = fun;
@@ -488,9 +488,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	process.argv = [];
 	process.version = ''; // empty string to avoid regexp issues
 	process.versions = {};
-	
+
 	function noop() {}
-	
+
 	process.on = noop;
 	process.addListener = noop;
 	process.once = noop;
@@ -498,11 +498,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	process.removeListener = noop;
 	process.removeAllListeners = noop;
 	process.emit = noop;
-	
+
 	process.binding = function (name) {
 	    throw new Error('process.binding is not supported');
 	};
-	
+
 	process.cwd = function () { return '/' };
 	process.chdir = function (dir) {
 	    throw new Error('process.chdir is not supported');
@@ -512,7 +512,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
 	var Utils = __webpack_require__(5);
-	
+
 	/**
 	 * BaseTransition to extend
 	 *
@@ -525,19 +525,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @type {HTMLElement}
 	   */
 	  oldContainer: undefined,
-	
+
 	  /**
 	   * @memberOf Barba.BaseTransition
 	   * @type {HTMLElement}
 	   */
 	  newContainer: undefined,
-	
+
 	  /**
 	   * @memberOf Barba.BaseTransition
 	   * @type {Promise}
 	   */
 	  newContainerLoading: undefined,
-	
+
 	  /**
 	   * Helper to extend the object
 	   *
@@ -548,7 +548,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  extend: function(obj){
 	    return Utils.extend(this, obj);
 	  },
-	
+
 	  /**
 	   * This function is called from Pjax module to initialize
 	   * the transition.
@@ -561,24 +561,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	   */
 	  init: function(oldContainer, newContainer) {
 	    var _this = this;
-	
+
 	    this.oldContainer = oldContainer;
 	    this._newContainerPromise = newContainer;
-	
+
 	    this.deferred = Utils.deferred();
 	    this.newContainerReady = Utils.deferred();
 	    this.newContainerLoading = this.newContainerReady.promise;
-	
+
 	    this.start();
-	
+
 	    this._newContainerPromise.then(function(newContainer) {
 	      _this.newContainer = newContainer;
 	      _this.newContainerReady.resolve();
 	    });
-	
+
 	    return this.deferred.promise;
 	  },
-	
+
 	  /**
 	   * This function needs to be called as soon the Transition is finished
 	   *
@@ -589,7 +589,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.newContainer.style.visibility = 'visible';
 	    this.deferred.resolve();
 	  },
-	
+
 	  /**
 	   * Constructor for your Transition
 	   *
@@ -598,7 +598,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   */
 	  start: function() {},
 	};
-	
+
 	module.exports = BaseTransition;
 /***/ },
 /* 5 */
@@ -622,7 +622,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	           window.location.pathname +
 	           window.location.search;
 	  },
-	
+
 	  /**
 	   * Given an url, return it without the hash
 	   *
@@ -634,7 +634,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  cleanLink: function(url) {
 	    return url.replace(/#.*/, '');
 	  },
-	
+
 	  /**
 	   * Time in millisecond after the xhr request goes in timeout
 	   *
@@ -643,7 +643,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @default
 	   */
 	  xhrTimeout: 5000,
-	
+
 	  /**
 	   * Start an XMLHttpRequest() and return a Promise
 	   *
@@ -654,7 +654,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  xhr: function(url) {
 	    var deferred = this.deferred();
 	    var req = new XMLHttpRequest();
-	
+
 	    req.onreadystatechange = function() {
 	      if (req.readyState === 4) {
 	        if (req.status === 200) {
@@ -664,19 +664,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      }
 	    };
-	
+
 	    req.ontimeout = function() {
 	      return deferred.reject(new Error('xhr: Timeout exceeded'));
 	    };
-	
+
 	    req.open('GET', url);
 	    req.timeout = this.xhrTimeout;
 	    req.setRequestHeader('x-barba', 'yes');
 	    req.send();
-	
+
 	    return deferred.promise;
 	  },
-	
+
 	  /**
 	   * Get obj and props and return a new object with the property merged
 	   *
@@ -687,16 +687,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	   */
 	  extend: function(obj, props) {
 	    var newObj = Object.create(obj);
-	
+
 	    for(var prop in props) {
 	      if(props.hasOwnProperty(prop)) {
 	        newObj[prop] = props[prop];
 	      }
 	    }
-	
+
 	    return newObj;
 	  },
-	
+
 	  /**
 	   * Return a new "Deferred" object
 	   * https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/Promise.jsm/Deferred
@@ -708,14 +708,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return new function() {
 	      this.resolve = null;
 	      this.reject = null;
-	
+
 	      this.promise = new Promise(function(resolve, reject) {
 	        this.resolve = resolve;
 	        this.reject = reject;
 	      }.bind(this));
 	    };
 	  },
-	
+
 	  /**
 	   * Return the port number normalized, eventually you can pass a string to be normalized.
 	   *
@@ -727,25 +727,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	  getPort: function(p) {
 	    var port = typeof p !== 'undefined' ? p : window.location.port;
 	    var protocol = window.location.protocol;
-	
+
 	    if (port != '')
 	      return parseInt(port);
-	
+
 	    if (protocol === 'http:')
 	      return 80;
-	
+
 	    if (protocol === 'https:')
 	      return 443;
 	  }
 	};
-	
+
 	module.exports = Utils;
 /***/ },
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 	var Dispatcher = __webpack_require__(7);
 	var Utils = __webpack_require__(5);
-	
+
 	/**
 	 * BaseView to be extended
 	 *
@@ -761,7 +761,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @type {String}
 	   */
 	  namespace: null,
-	
+
 	  /**
 	   * Helper to extend the object
 	   *
@@ -772,7 +772,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  extend: function(obj){
 	    return Utils.extend(this, obj);
 	  },
-	
+
 	  /**
 	   * Init the view.
 	   * P.S. Is suggested to init the view before starting Barba.Pjax.start(),
@@ -783,34 +783,34 @@ return /******/ (function(modules) { // webpackBootstrap
 	   */
 	  init: function() {
 	    var _this = this;
-	
+
 	    Dispatcher.on('initStateChange',
 	      function(newStatus, oldStatus) {
 	        if (oldStatus && oldStatus.namespace === _this.namespace)
 	          _this.onLeave();
 	      }
 	    );
-	
+
 	    Dispatcher.on('newPageReady',
 	      function(newStatus, oldStatus, container) {
 	        _this.container = container;
-	
+
 	        if (newStatus.namespace === _this.namespace)
 	          _this.onEnter();
 	      }
 	    );
-	
+
 	    Dispatcher.on('transitionCompleted',
 	      function(newStatus, oldStatus) {
 	        if (newStatus.namespace === _this.namespace)
 	          _this.onEnterCompleted();
-	
+
 	        if (oldStatus && oldStatus.namespace === _this.namespace)
 	          _this.onLeaveCompleted();
 	      }
 	    );
 	  },
-	
+
 	 /**
 	  * This function will be fired when the container
 	  * is ready and attached to the DOM.
@@ -819,7 +819,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  * @abstract
 	  */
 	  onEnter: function() {},
-	
+
 	  /**
 	   * This function will be fired when the transition
 	   * to this container has just finished.
@@ -828,7 +828,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @abstract
 	   */
 	  onEnterCompleted: function() {},
-	
+
 	  /**
 	   * This function will be fired when the transition
 	   * to a new container has just started.
@@ -837,7 +837,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @abstract
 	   */
 	  onLeave: function() {},
-	
+
 	  /**
 	   * This function will be fired when the container
 	   * has just been removed from the DOM.
@@ -847,7 +847,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   */
 	  onLeaveCompleted: function() {}
 	}
-	
+
 	module.exports = BaseView;
 /***/ },
 /* 7 */
@@ -867,7 +867,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @type {Object}
 	   */
 	  events: {},
-	
+
 	  /**
 	   * Bind a callback to an event
 	   *
@@ -879,7 +879,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.events[e] = this.events[e] || [];
 	    this.events[e].push(f);
 	  },
-	
+
 	  /**
 	   * Unbind event
 	   *
@@ -890,10 +890,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  off: function(e, f) {
 	    if(e in this.events === false)
 	      return;
-	
+
 	    this.events[e].splice(this.events[e].indexOf(f), 1);
 	  },
-	
+
 	  /**
 	   * Fire the event running all the event associated to it
 	   *
@@ -904,19 +904,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	  trigger: function(e) {//e, ...args
 	    if (e in this.events === false)
 	      return;
-	
+
 	    for(var i = 0; i < this.events[e].length; i++){
 	      this.events[e][i].apply(this, Array.prototype.slice.call(arguments, 1));
 	    }
 	  }
 	};
-	
+
 	module.exports = Dispatcher;
 /***/ },
 /* 8 */
 /***/ function(module, exports, __webpack_require__) {
 	var Utils = __webpack_require__(5);
-	
+
 	/**
 	 * BaseCache it's a simple static cache
 	 *
@@ -931,7 +931,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @type {Object}
 	   */
 	  data: {},
-	
+
 	  /**
 	   * Helper to extend this object
 	   *
@@ -943,7 +943,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  extend: function(obj) {
 	    return Utils.extend(this, obj);
 	  },
-	
+
 	  /**
 	   * Set a key and value data, mainly Barba is going to save promises
 	   *
@@ -954,7 +954,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  set: function(key, val) {
 	    this.data[key] = val;
 	  },
-	
+
 	  /**
 	   * Retrieve the data using the key
 	   *
@@ -965,7 +965,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  get: function(key) {
 	    return this.data[key];
 	  },
-	
+
 	  /**
 	   * Flush the cache
 	   *
@@ -975,7 +975,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.data = {};
 	  }
 	};
-	
+
 	module.exports = BaseCache;
 /***/ },
 /* 9 */
@@ -995,7 +995,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @type {Array}
 	   */
 	  history: [],
-	
+
 	  /**
 	   * Add a new set of url and namespace
 	   *
@@ -1007,13 +1007,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  add: function(url, namespace) {
 	    if (!namespace)
 	      namespace = undefined;
-	
+
 	    this.history.push({
 	      url: url,
 	      namespace: namespace
 	    });
 	  },
-	
+
 	  /**
 	   * Return information about the current status
 	   *
@@ -1023,7 +1023,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  currentStatus: function() {
 	    return this.history[this.history.length - 1];
 	  },
-	
+
 	  /**
 	   * Return information about the previous status
 	   *
@@ -1032,14 +1032,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	   */
 	  prevStatus: function() {
 	    var history = this.history;
-	
+
 	    if (history.length < 2)
 	      return null;
-	
+
 	    return history[history.length - 2];
 	  }
 	};
-	
+
 	module.exports = HistoryManager;
 /***/ },
 /* 10 */
@@ -1048,10 +1048,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Dispatcher = __webpack_require__(7);
 	var HideShowTransition = __webpack_require__(11);
 	var BaseCache = __webpack_require__(8);
-	
+
 	var HistoryManager = __webpack_require__(9);
 	var Dom = __webpack_require__(12);
-	
+
 	/**
 	 * Pjax is a static object with main function
 	 *
@@ -1063,7 +1063,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  Dom: Dom,
 	  History: HistoryManager,
 	  Cache: BaseCache,
-	
+
 	  /**
 	   * Indicate wether or not use the cache
 	   *
@@ -1072,7 +1072,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @default
 	   */
 	  cacheEnabled: true,
-	
+
 	  /**
 	   * Indicate if there is an animation in progress
 	   *
@@ -1081,7 +1081,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @type {Boolean}
 	   */
 	  transitionProgress: false,
-	
+
 	  /**
 	   * Class name used to ignore links
 	   *
@@ -1090,7 +1090,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @default
 	   */
 	  ignoreClassLink: 'no-barba',
-	
+
 	  /**
 	   * Function to be called to start Pjax
 	   *
@@ -1099,7 +1099,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  start: function() {
 	    this.init();
 	  },
-	
+
 	  /**
 	   * Init the events
 	   *
@@ -1109,14 +1109,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	  init: function() {
 	    var container = this.Dom.getContainer();
 	    var wrapper = this.Dom.getWrapper();
-	
+
 	    wrapper.setAttribute('aria-live', 'polite');
-	
+
 	    this.History.add(
 	      this.getCurrentUrl(),
 	      this.Dom.getNamespace(container)
 	    );
-	
+
 	    //Fire for the current view.
 	    Dispatcher.trigger('initStateChange', this.History.currentStatus());
 	    Dispatcher.trigger('newPageReady',
@@ -1126,10 +1126,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.Dom.currentHTML
 	    );
 	    Dispatcher.trigger('transitionCompleted', this.History.currentStatus());
-	
+
 	    this.bindEvents();
 	  },
-	
+
 	  /**
 	   * Attach the eventlisteners
 	   *
@@ -1140,12 +1140,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    document.addEventListener('click',
 	      this.onLinkClick.bind(this)
 	    );
-	
+
 	    window.addEventListener('popstate',
 	      this.onStateChange.bind(this)
 	    );
 	  },
-	
+
 	  /**
 	   * Return the currentURL cleaned
 	   *
@@ -1157,7 +1157,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      Utils.getCurrentUrl()
 	    );
 	  },
-	
+
 	  /**
 	   * Change the URL with pushstate and trigger the state change
 	   *
@@ -1168,7 +1168,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    window.history.pushState(null, null, url);
 	    this.onStateChange();
 	  },
-	
+
 	  /**
 	   * Force the browser to go to a certain url
 	   *
@@ -1179,7 +1179,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  forceGoTo: function(url) {
 	    window.location = url;
 	  },
-	
+
 	  /**
 	   * Load an url, will start an xhr request or load from the cache
 	   *
@@ -1192,36 +1192,36 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var deferred = Utils.deferred();
 	    var _this = this;
 	    var xhr;
-	
+
 	    xhr = this.Cache.get(url);
-	
+
 	    if (!xhr) {
 	      xhr = Utils.xhr(url);
 	      this.Cache.set(url, xhr);
 	    }
-	
+
 	    xhr.then(
 	      function(data) {
 	        var container = _this.Dom.parseResponse(data);
-	
+
 	        _this.Dom.putContainer(container);
-	
+
 	        if (!_this.cacheEnabled)
 	          _this.Cache.reset();
-	
+
 	        deferred.resolve(container);
 	      },
 	      function() {
 	        //Something went wrong (timeout, 404, 505...)
 	        _this.forceGoTo(url);
-	
+
 	        deferred.reject();
 	      }
 	    );
-	
+
 	    return deferred.promise;
 	  },
-	
+
 	  /**
 	   * Get the .href parameter out of an element
 	   * and handle special cases (like xlink:href)
@@ -1235,18 +1235,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (!el) {
 	      return undefined;
 	    }
-	
+
 	    if (el.getAttribute && typeof el.getAttribute('xlink:href') === 'string') {
 	      return el.getAttribute('xlink:href');
 	    }
-	
+
 	    if (typeof el.href === 'string') {
 	      return el.href;
 	    }
-	
+
 	    return undefined;
 	  },
-	
+
 	  /**
 	   * Callback called from click event
 	   *
@@ -1256,24 +1256,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	   */
 	  onLinkClick: function(evt) {
 	    var el = evt.target;
-	
+
 	    //Go up in the nodelist until we
 	    //find something with an href
 	    while (el && !this.getHref(el)) {
 	      el = el.parentNode;
 	    }
-	
+
 	    if (this.preventCheck(evt, el)) {
 	      evt.stopPropagation();
 	      evt.preventDefault();
-	
+
 	      Dispatcher.trigger('linkClicked', el, evt);
-	
+
 	      var href = this.getHref(el);
 	      this.goTo(href);
 	    }
 	  },
-	
+
 	  /**
 	   * Determine if the link should be followed
 	   *
@@ -1285,47 +1285,47 @@ return /******/ (function(modules) { // webpackBootstrap
 	  preventCheck: function(evt, element) {
 	    if (!window.history.pushState)
 	      return false;
-	
+
 	    var href = this.getHref(element);
-	
+
 	    //User
 	    if (!element || !href)
 	      return false;
-	
+
 	    //Middle click, cmd click, and ctrl click
 	    if (evt.which > 1 || evt.metaKey || evt.ctrlKey || evt.shiftKey || evt.altKey)
 	      return false;
-	
+
 	    //Ignore target with _blank target
 	    if (element.target && element.target === '_blank')
 	      return false;
-	
+
 	    //Check if it's the same domain
 	    if (window.location.protocol !== element.protocol || window.location.hostname !== element.hostname)
 	      return false;
-	
+
 	    //Check if the port is the same
 	    if (Utils.getPort() !== Utils.getPort(element.port))
 	      return false;
-	
+
 	    //Ignore case when a hash is being tacked on the current URL
 	    if (href.indexOf('#') > -1)
 	      return false;
-	
+
 	    //Ignore case where there is download attribute
 	    if (element.getAttribute && typeof element.getAttribute('download') === 'string')
 	      return false;
-	
+
 	    //In case you're trying to load the same page
 	    if (Utils.cleanLink(href) == Utils.cleanLink(location.href))
 	      return false;
-	
+
 	    if (element.classList.contains(this.ignoreClassLink))
 	      return false;
-	
+
 	    return true;
 	  },
-	
+
 	  /**
 	   * Return a transition object
 	   *
@@ -1336,7 +1336,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    //User customizable
 	    return HideShowTransition;
 	  },
-	
+
 	  /**
 	   * Method called after a 'popstate' or from .goTo()
 	   *
@@ -1345,39 +1345,39 @@ return /******/ (function(modules) { // webpackBootstrap
 	   */
 	  onStateChange: function() {
 	    var newUrl = this.getCurrentUrl();
-	
+
 	    if (this.transitionProgress)
 	      this.forceGoTo(newUrl);
-	
+
 	    if (this.History.currentStatus().url === newUrl)
 	      return false;
-	
+
 	    this.History.add(newUrl);
-	
+
 	    var newContainer = this.load(newUrl);
 	    var transition = Object.create(this.getTransition());
-	
+
 	    this.transitionProgress = true;
-	
+
 	    Dispatcher.trigger('initStateChange',
 	      this.History.currentStatus(),
 	      this.History.prevStatus()
 	    );
-	
+
 	    var transitionInstance = transition.init(
 	      this.Dom.getContainer(),
 	      newContainer
 	    );
-	
+
 	    newContainer.then(
 	      this.onNewContainerLoaded.bind(this)
 	    );
-	
+
 	    transitionInstance.then(
 	      this.onTransitionEnd.bind(this)
 	    );
 	  },
-	
+
 	  /**
 	   * Function called as soon the new container is ready
 	   *
@@ -1388,7 +1388,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  onNewContainerLoaded: function(container) {
 	    var currentStatus = this.History.currentStatus();
 	    currentStatus.namespace = this.Dom.getNamespace(container);
-	
+
 	    Dispatcher.trigger('newPageReady',
 	      this.History.currentStatus(),
 	      this.History.prevStatus(),
@@ -1396,7 +1396,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.Dom.currentHTML
 	    );
 	  },
-	
+
 	  /**
 	   * Function called as soon the transition is finished
 	   *
@@ -1405,20 +1405,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	   */
 	  onTransitionEnd: function() {
 	    this.transitionProgress = false;
-	
+
 	    Dispatcher.trigger('transitionCompleted',
 	      this.History.currentStatus(),
 	      this.History.prevStatus()
 	    );
 	  }
 	};
-	
+
 	module.exports = Pjax;
 /***/ },
 /* 11 */
 /***/ function(module, exports, __webpack_require__) {
 	var BaseTransition = __webpack_require__(4);
-	
+
 	/**
 	 * Basic Transition object, wait for the new Container to be ready,
 	 * scroll top, and finish the transition (removing the old container and displaying the new one)
@@ -1431,13 +1431,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  start: function() {
 	    this.newContainerLoading.then(this.finish.bind(this));
 	  },
-	
+
 	  finish: function() {
 	    document.body.scrollTop = 0;
 	    this.done();
 	  }
 	});
-	
+
 	module.exports = HideShowTransition;
 /***/ },
 /* 12 */
@@ -1457,7 +1457,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @default
 	   */
 	  dataNamespace: 'namespace',
-	
+
 	  /**
 	   * Id of the main wrapper
 	   *
@@ -1466,7 +1466,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @default
 	   */
 	  wrapperId: 'barba-wrapper',
-	
+
 	  /**
 	   * Class name used to identify the containers
 	   *
@@ -1475,7 +1475,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @default
 	   */
 	  containerClass: 'barba-container',
-	
+
 	  /**
 	   * Full HTML String of the current page.
 	   * By default is the innerHTML of the initial loaded page.
@@ -1486,7 +1486,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @type {String}
 	   */
 	  currentHTML: document.documentElement.innerHTML,
-	
+
 	  /**
 	   * Parse the responseText obtained from the xhr call
 	   *
@@ -1497,18 +1497,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	   */
 	  parseResponse: function(responseText) {
 	    this.currentHTML = responseText;
-	
+
 	    var wrapper = document.createElement('div');
 	    wrapper.innerHTML = responseText;
-	
+
 	    var titleEl = wrapper.querySelector('title');
-	
+
 	    if (titleEl)
 	      document.title = titleEl.textContent;
-	
+
 	    return this.getContainer(wrapper);
 	  },
-	
+
 	  /**
 	   * Get the main barba wrapper by the ID `wrapperId`
 	   *
@@ -1517,13 +1517,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	   */
 	  getWrapper: function() {
 	    var wrapper = document.getElementById(this.wrapperId);
-	
+
 	    if (!wrapper)
 	      throw new Error('Barba.js: wrapper not found!');
-	
+
 	    return wrapper;
 	  },
-	
+
 	  /**
 	   * Get the container on the current DOM,
 	   * or from an HTMLElement passed via argument
@@ -1536,21 +1536,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	  getContainer: function(element) {
 	    if (!element)
 	      element = document.body;
-	
+
 	    if (!element)
 	      throw new Error('Barba.js: DOM not ready!');
-	
+
 	    var container = this.parseContainer(element);
-	
+
 	    if (container && container.jquery)
 	      container = container[0];
-	
+
 	    if (!container)
 	      throw new Error('Barba.js: no container found');
-	
+
 	    return container;
 	  },
-	
+
 	  /**
 	   * Get the namespace of the container
 	   *
@@ -1565,10 +1565,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    } else if (element) {
 	      return element.getAttribute('data-' + this.dataNamespace);
 	    }
-	
+
 	    return null;
 	  },
-	
+
 	  /**
 	   * Put the container on the page
 	   *
@@ -1578,11 +1578,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	   */
 	  putContainer: function(element) {
 	    element.style.visibility = 'hidden';
-	
+
 	    var wrapper = this.getWrapper();
 	    wrapper.appendChild(element);
 	  },
-	
+
 	  /**
 	   * Get container selector
 	   *
@@ -1595,14 +1595,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return element.querySelector('.' + this.containerClass);
 	  }
 	};
-	
+
 	module.exports = Dom;
 /***/ },
 /* 13 */
 /***/ function(module, exports, __webpack_require__) {
 	var Utils = __webpack_require__(5);
 	var Pjax = __webpack_require__(10);
-	
+
 	/**
 	 * Prefetch
 	 *
@@ -1618,7 +1618,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @default
 	   */
 	  ignoreClassLink: 'no-barba-prefetch',
-	
+
 	  /**
 	   * Init the event listener on mouseover and touchstart
 	   * for the prefetch
@@ -1629,11 +1629,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (!window.history.pushState) {
 	      return false;
 	    }
-	
+
 	    document.body.addEventListener('mouseover', this.onLinkEnter.bind(this));
 	    document.body.addEventListener('touchstart', this.onLinkEnter.bind(this));
 	  },
-	
+
 	  /**
 	   * Callback for the mousehover/touchstart
 	   *
@@ -1643,17 +1643,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	   */
 	  onLinkEnter: function(evt) {
 	    var el = evt.target;
-	
+
 	    while (el && !Pjax.getHref(el)) {
 	      el = el.parentNode;
 	    }
-	
+
 	    if (!el || el.classList.contains(this.ignoreClassLink)) {
 	      return;
 	    }
-	
+
 	    var url = Pjax.getHref(el);
-	
+
 	    //Check if the link is elegible for Pjax
 	    if (Pjax.preventCheck(evt, el) && !Pjax.Cache.get(url)) {
 	      var xhr = Utils.xhr(url);
@@ -1661,7 +1661,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	};
-	
+
 	module.exports = Prefetch;
 /***/ }
 /******/ ])
@@ -1903,16 +1903,16 @@ var Jumbotron = (function() {
             var _self = this;
             if(MediaQuery.value >= 2) {
                 _self.scale = Math.min(
-                    _self.jumbotronHeadingWidth / 1600,    
+                    _self.jumbotronHeadingWidth / 1600,
                     _self.jumbotronHeadingHeight / 250
                 );
             } else {
                 _self.scale = Math.min(
-                    _self.jumbotronHeadingWidth / 850,    
+                    _self.jumbotronHeadingWidth / 850,
                     _self.jumbotronHeadingHeight / 425
                 );
             }
-            
+
             _self.$jumbotronHeadingText.css({
                 transform: 'scale(' + _self.scale + ')',
             });
@@ -1920,7 +1920,7 @@ var Jumbotron = (function() {
     };
     var init = function() {
         console.log('Jumbotron Init');
-        
+
         $('.c-jumbotron').each(function() {
             var instance = $.data(this, 'Jumbotron');
             if(!instance) {
@@ -1955,7 +1955,7 @@ var NavTrigger = (function() {
             close();
             isAnimating = false;
         });
-    
+
         window.addEventListener('scroll', function() {
         //    TODO: rotation
 			// $navTriggerIcon.style.transform = 'rotate(' + (window.pageYOffset / 6) + 'deg)';
@@ -1985,7 +1985,7 @@ var NavTrigger = (function() {
         state = JSON.parse($navTrigger.getAttribute('aria-expanded'));
         $navTrigger.setAttribute('aria-expanded', !state);
         $nav.hidden = !$nav.hidden;
-        
+
         if(!state) {
             global.$body[0].classList.add('is-nav-open');
         } else {
@@ -2060,7 +2060,7 @@ var Nav = (function() {
     };
     var init = function() {
         Barba.Pjax.start();
-		
+
         var FadeTransition = Barba.BaseTransition.extend({
             start: function() {
                 // Destroy plugins
@@ -2091,9 +2091,9 @@ var Nav = (function() {
                             $(element).addClass('is-in-view');
                         })
                         .on('exit', function(element) {
-						
+
                         });
-					
+
                     inView.offset(100);
                     $oldContainer.one(global.transitionEnd, function() {
                         $('html, body').scrollTop(0);
@@ -2136,9 +2136,9 @@ var Nav = (function() {
     var timerWindowResize;
     window.addEventListener('resize', function() {
         global.$html[0].classList.add('is-disable-animations');
-        
+
         clearTimeout(timerWindowResize);
-        
+
         timerWindowResize = setTimeout(function() {
             global.$html[0].classList.remove('is-disable-animations');
         }, 400);
@@ -2153,7 +2153,7 @@ var Nav = (function() {
 		else {
 		$('.c-header__logo').removeClass('.elementToFadeIn').addClass('elementToFadeOut')
 
-		} 
+		}
 	});
 
     $(window).load(function() {
@@ -2167,7 +2167,7 @@ var Nav = (function() {
             .on('exit', function(element) {
 
             });
-        
+
         inView.offset(100);
         $.stellar({
             horizontalScrolling: false,
