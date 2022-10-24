@@ -2116,6 +2116,10 @@ html.js .js-in-view.-fade-in-up.is-in-view {
   margin-top: 1.812rem;
 }
 
+.c-form input {
+  background-color: #030D11;
+}
+
 .c-form .c-form__group--inline .c-form__group-item {
   width: 100%;
 }
