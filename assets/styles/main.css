@@ -2939,7 +2939,7 @@ html.js .c-nav {
 
 .c-nav ul li a {
   display: inline-block;
-  color: #030D11;
+  color: white;
   font-size: calc(40px + (58 - 40) * ((100vw - 320px) / (1440 - 320)));
   line-height: 1.5;
 }
@@ -2985,6 +2985,10 @@ html.js .c-nav .c-nav__wrapper {
 
 body.is-nav-open .c-nav .c-nav__wrapper {
   clip-path: circle(400vh at calc(100% - 55px) 55px);
+}
+
+.menu_items a {
+  color: white;
 }
 
 /*******************************************************************************
@@ -4154,7 +4158,7 @@ html.js .c-nav {
 
 .c-nav ul li a {
   display: inline-block;
-  color: #030D11;
+  color: white;
   font-size: calc(40px + (58 - 40) * ((100vw - 320px) / (1440 - 320)));
   line-height: 1.5;
 }
