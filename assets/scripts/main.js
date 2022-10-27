@@ -2146,11 +2146,11 @@ var Nav = (function() {
 
 	// basic fadeout
    $(window).scroll( function() {
-		if( $(this).scrollTop() > 500 ) {
-			$('.c-header__logo').removeClass('elementToFadeOut').addClass('elementToFadeIn')
-		} else {
-			$('.c-header__logo').removeClass('elementToFadeIn').addClass('elementToFadeOut')
-		}
+	if ($(this).scrollTop() > 500) {
+        $('.c-header__logo').fadeOut(500);
+    } else if ($(this).scrollTop() < 500) {
+        $('.c-header__logo').fadeIn(500);
+	}
 	});
 
     $(window).load(function() {
