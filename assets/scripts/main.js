@@ -2146,13 +2146,10 @@ var Nav = (function() {
 
 	// basic fadeout
    $(window).scroll( function() {
-		if( $(this).scrollTop() > 600 ) {
-		$('.c-header__logo').removeClass('.elementToFadeOut').addClass('elementToFadeIn')
-
-		}
-		else {
-		$('.c-header__logo').removeClass('.elementToFadeIn').addClass('elementToFadeOut')
-
+		if( $(this).scrollTop() > 500 ) {
+			$('.c-header__logo').removeClass('elementToFadeOut').addClass('elementToFadeIn')
+		} else {
+			$('.c-header__logo').removeClass('elementToFadeIn').addClass('elementToFadeOut')
 		}
 	});
 
