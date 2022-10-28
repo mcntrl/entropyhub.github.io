@@ -2111,6 +2111,20 @@ html.js .js-in-view.-fade-in-up.is-in-view {
      */
 }
 
+.c-form {
+  width: 60%;
+}
+
+#form-header {
+  text-align: center;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .c-form .c-form__group,
 .c-form .c-form__group--inline {
   margin-top: 29px;

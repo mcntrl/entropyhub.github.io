@@ -813,24 +813,25 @@
           </div>
         </section>
 
-        <section id="contact-form" class="c-section -margin-bottom-half js-in-view -fade-in-up">
+        <section class="c-section -margin-bottom-half js-in-view -fade-in-up">
           <div class="l-container">
-            <div class="l-row">
-              <div class="l-column l-column-md-6">
+            <div class="l-row form-section">
+              <div id="form-header" class="l-column l-column-md-6">
                 <h2 class="u-font-9">Come in, Control.</h2>
-                <p>Feel like having a chat? We are always excited to hear about new (or old) projects you may want a
-                  hand with.
+                <p>Feel like having a chat? We are always excited to hear about new (or old) projects you may want a hand with.
                   Drop us a line below and we’ll get back to you immediately. Seriously, we’re always online!
                 </p>
               </div>
             </div>
-            <div class="l-row">
+            <div class="l-row form-section">
               <div class="l-column l-column-md-10">
                 <form class="c-form" action="https://formspree.io/xwkrqjbk" method="POST">
                   <div class="c-form__group--inline">
                     <div class="c-form__group-item">
                       <input name="firstName" placeholder="First name" type="text" required>
                     </div>
+                  </div>
+                  <div class="c-form__group--inline">
                     <div class="c-form__group-item">
                       <input name="lastName" placeholder="Last Name" type="text" required>
                     </div>
@@ -839,6 +840,8 @@
                     <div class="c-form__group-item">
                       <input name="email" placeholder="Email Address" type="email" required>
                     </div>
+                  </div>
+                  <div class="c-form__group--inline">
                     <div class="c-form__group-item">
                       <input name="phone" placeholder="Phone Number (optional)" type="text">
                     </div>
@@ -846,7 +849,7 @@
                   <div class="c-form__group">
                     <textarea name="message" placeholder="Tell us about your App project"></textarea>
                   </div>
-                  <button class="c-button -blue">Send Message</button>
+                  <button class="c-button -blue">Submit</button>
                 </form>
               </div>
             </div>
