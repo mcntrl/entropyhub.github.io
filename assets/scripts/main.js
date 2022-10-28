@@ -1958,8 +1958,8 @@ var NavTrigger = (function() {
 
         window.addEventListener('scroll', function() {
         //    TODO: rotation
-			// $navTriggerIcon.style.transform = 'rotate(' + (window.pageYOffset / 6) + 'deg)';
-            // $navTriggerLabel.style.transform = 'rotate(' + (window.pageYOffset / -6) + 'deg)';
+			$navTriggerIcon.style.transform = 'rotate(' + (window.pageYOffset / 6) + 'deg)';
+            $navTriggerLabel.style.transform = 'rotate(' + (window.pageYOffset / -6) + 'deg)';
         });
     };
     var close = function() {
@@ -1999,8 +1999,8 @@ var NavTrigger = (function() {
         $nav = document.querySelector('.c-nav');
         $navTrigger = document.querySelector('.js-nav-trigger');
 		// TODO rotation
-        // $navTriggerIcon = document.querySelector('.svg-icon-menu__icon');
-        // $navTriggerLabel = document.querySelector('.svg-icon-menu__label');
+        $navTriggerIcon = document.querySelector('.svg-icon-menu__icon');
+        $navTriggerLabel = document.querySelector('.svg-icon-menu__label');
         _addEventListeners();
     };
     return {
