@@ -472,6 +472,7 @@ textarea {
 input:focus,
 textarea:focus {
   outline: none;
+  border: 2px solid #29FAFF;
 }
 
 input[type='email'],
@@ -2184,6 +2185,7 @@ html.js .js-in-view.-fade-in-up.is-in-view {
   background-color: #fff;
   border: 1px solid #fff;
 }
+
 
 /*******************************************************************************
 //
