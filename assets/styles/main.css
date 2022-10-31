@@ -777,7 +777,7 @@ h2 {
 
 .h3,
 h3 {
-  font-size: calc((20 * 1px) + (24 - 20) * ((100vw - 320px) / (1440 - 320)));
+  font-size: 72px;
   line-height: 1.2;
 }
 
@@ -6679,6 +6679,49 @@ html.is-dom-loading .c-wrapper {
 
 
 @media screen and (max-width: 19.938em) {
+
+  #illustration-1 {
+    margin: 0 auto;
+    width: 240px;
+    height: 230px;
+  }
+
+  #illustration-2 {
+    width: 245px;
+    height: 245px;
+  }
+
+  #os-icons {
+    width: 226px;
+    height: 34px;
+    margin: 0 auto;
+  }
+
+  #ppl-home {
+    width: 200px;
+    text-align: center;
+  }
+
+  #ppl-home h3 {
+    font-size: 32px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  #ppl-para {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 220px;
+  }
+
+  #ppl-home p {
+    font-size: 14px;
+
+  }
+
   .h1,
   h1 {
     font-size: 30px;
@@ -6709,8 +6752,13 @@ html.is-dom-loading .c-wrapper {
     font-size: 14px;
   }
 
+  .c-section {
+    padding: 0px;
+    margin: 0px;
+  }
+
   .c-header__logo svg {
-    width: 100px;
+    width: 180px;
   }
 
   .c-gate .c-gate__button .c-gate__button-heading {
@@ -6802,7 +6850,7 @@ html.is-dom-loading .c-wrapper {
   }
 
   .u-font-10 {
-    font-size: 68px;
+    font-size: 32px;
   }
 
   .u-font-11 {
@@ -6859,6 +6907,33 @@ html.is-dom-loading .c-wrapper {
 }
 
 @media screen and (min-width: 90em) {
+
+  #illustration-1 {
+    margin: 0 auto;
+    width: 461px;
+    height: 451px;
+  }
+
+  #illustration-2 {
+    width: 555px;
+    height: 555px;
+  }
+
+  #os-icons {
+    margin-left: 100px;
+    width: 426px;
+    height: 64px;
+  }
+
+  #ppl-para {
+    width: 980px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .h1,
   h1 {
     font-size: 38px;
