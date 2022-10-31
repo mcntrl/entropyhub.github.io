@@ -6697,18 +6697,19 @@ html.is-dom-loading .c-wrapper {
     margin: 0 auto;
   }
 
-  #ppl-home {
-    width: 200px;
+  .header-section {
+    width: 260px;
     text-align: center;
   }
 
-  #ppl-home h3 {
+
+  .header-section h3 {
     font-size: 32px;
     text-align: center;
     margin: 0 auto;
   }
 
-  #ppl-para {
+  .para-section {
     text-align: center;
     display: flex;
     justify-content: center;
@@ -6717,9 +6718,13 @@ html.is-dom-loading .c-wrapper {
     width: 220px;
   }
 
-  #ppl-home p {
+ .header-section p, .header-section ul {
     font-size: 14px;
 
+  }
+
+  #imp-para {
+    font-size: 18px;
   }
 
   .h1,
@@ -6752,8 +6757,12 @@ html.is-dom-loading .c-wrapper {
     font-size: 14px;
   }
 
-  .c-section {
-    padding: 0px;
+  .c-jumbotron {
+    margin-bottom: 40px;
+    height: 560px;
+  }
+
+  .layout-who-we-are .c-jumbotron {
     margin: 0px;
   }
 
@@ -6923,6 +6932,11 @@ html.is-dom-loading .c-wrapper {
     margin-left: 100px;
     width: 426px;
     height: 64px;
+  }
+
+  #imp-para {
+    font-size: 20px;
+    line-height: 32px;
   }
 
   #ppl-para {
