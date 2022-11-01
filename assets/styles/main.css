@@ -6684,6 +6684,7 @@ html.is-dom-loading .c-wrapper {
     margin: 0 auto;
     width: 240px;
     height: 230px;
+    text-align: center;
   }
 
   #illustration-2 {
@@ -6704,12 +6705,6 @@ html.is-dom-loading .c-wrapper {
     margin: 0 auto;
     padding: 0px;
   }
-
-  /* #apps-para {
-    width: 220px;
-    text-align: center;
-  } */
-
 
   .header-section h3 {
     font-size: 32px;
@@ -6734,7 +6729,7 @@ html.is-dom-loading .c-wrapper {
 
  .header-section p, .header-section ul {
     font-size: 14px;
-
+    margin-left: 0px;
   }
 
   #mp-para ul li {
@@ -6751,6 +6746,25 @@ html.is-dom-loading .c-wrapper {
 
   #form-home {
     margin: 0 auto;
+    width: 280px;
+  }
+
+  #sl-home, #sl-home h3 {
+    text-align: left;
+    margin-left: 15px;
+  }
+
+  #cs-home img {
+    width: 80px;
+  }
+
+  #cs-home p {
+    width: 100px;
+    height: 100px;
+    margin: 0px;
+  }
+
+  #cs-home .l-row {
     width: 280px;
   }
 
@@ -6973,6 +6987,10 @@ html.is-dom-loading .c-wrapper {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+  }
+
+  #ppl-home h3 {
+    text-align: center;
   }
 
   .h1,
