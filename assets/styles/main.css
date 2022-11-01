@@ -6682,19 +6682,19 @@ html.is-dom-loading .c-wrapper {
 
   #illustration-1 {
     margin: 0 auto;
-    width: 240px;
-    height: 230px;
+    width: 300px;
+    height: 290px;
     text-align: center;
   }
 
   #illustration-2 {
-    width: 285px;
-    height: 285px;
+    width: 320px;
+    height: 320px;
     margin: 0 auto;
   }
 
   #os-icons {
-    width: 226px;
+    width: 300px;
     height: 34px;
     margin: 0 auto;
   }
@@ -6718,14 +6718,18 @@ html.is-dom-loading .c-wrapper {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width: 260px;
+    width: 80%;
     margin: 0 auto;
   }
 
   .header-section p, .header-section ul {
      font-size: 14px;
      margin-left: 0px;
-   }
+  }
+
+  #apps-home h3 {
+    text-align: left;
+  }
 
   #apps-para {
     text-align: left;
@@ -6738,6 +6742,7 @@ html.is-dom-loading .c-wrapper {
 
   #mp-para ul li {
     list-style: none;
+    margin-bottom: 28px;
   }
 
   .list-title {
@@ -6749,9 +6754,12 @@ html.is-dom-loading .c-wrapper {
     width: 280px;
   }
 
+  #sl-home {
+    margin-left: 15px;
+  }
+
   #sl-home, #sl-home h3 {
     text-align: left;
-    margin-left: 15px;
   }
 
   #cs-home img {
