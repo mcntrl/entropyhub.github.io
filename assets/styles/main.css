@@ -6727,7 +6727,11 @@ html.is-dom-loading .c-wrapper {
      margin-left: 0px;
   }
 
-  #apps-home h3 {
+  #apps-home {
+    margin-left: 15px;
+  }
+
+  #apps-home, #apps-home h3 {
     text-align: left;
   }
 
@@ -6774,6 +6778,20 @@ html.is-dom-loading .c-wrapper {
 
   #cs-home .l-row {
     width: 280px;
+  }
+
+  #case-studies-three .u-d-lg-flex {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  #case-studies-three .u-d-lg-flex div {
+    margin: 0 auto;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .c-section.-padding-bottom-double {
+    padding-bottom: 0px;
   }
 
   .h1,
