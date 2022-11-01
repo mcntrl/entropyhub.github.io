@@ -6687,8 +6687,9 @@ html.is-dom-loading .c-wrapper {
   }
 
   #illustration-2 {
-    width: 245px;
-    height: 245px;
+    width: 285px;
+    height: 285px;
+    margin: 0 auto;
   }
 
   #os-icons {
@@ -6698,9 +6699,16 @@ html.is-dom-loading .c-wrapper {
   }
 
   .header-section {
-    width: 260px;
+    width: 90%;
     text-align: center;
+    margin: 0 auto;
+    padding: 0px;
   }
+
+  /* #apps-para {
+    width: 220px;
+    text-align: center;
+  } */
 
 
   .header-section h3 {
@@ -6715,7 +6723,13 @@ html.is-dom-loading .c-wrapper {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width: 220px;
+    width: 260px;
+    margin: 0 auto;
+  }
+
+  #apps-para {
+    text-align: left;
+    margin: 0 auto;
   }
 
  .header-section p, .header-section ul {
@@ -6723,8 +6737,21 @@ html.is-dom-loading .c-wrapper {
 
   }
 
+  #mp-para ul li {
+    list-style: none;
+  }
+
+  .list-title {
+    font-size: 18px;
+  }
+
   #imp-para {
     font-size: 18px;
+  }
+
+  #form-home {
+    margin: 0 auto;
+    width: 280px;
   }
 
   .h1,
