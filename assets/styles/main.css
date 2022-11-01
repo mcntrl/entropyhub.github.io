@@ -6988,6 +6988,10 @@ html.is-dom-loading .c-wrapper {
     align-items: center;
   }
 
+  #apps-para p {
+    width: 400px;
+  }
+
   #imp-para {
     font-size: 20px;
     line-height: 32px;
