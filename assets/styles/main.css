@@ -2419,6 +2419,7 @@ body.is-nav-open .c-header .c-header__logo .svg-logo-entropy .svg-logo-entropy__
   transform: translate(-50%, -50%) scale(0);
 }
 
+
 html.js .c-header .c-header__nav-trigger .svg-icon-cross {
   transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
