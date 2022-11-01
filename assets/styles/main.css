@@ -6678,7 +6678,7 @@ html.is-dom-loading .c-wrapper {
 }
 
 
-@media screen and (max-width: 19.938em) {
+@media screen and (max-width: 412px) {
 
   #illustration-1 {
     margin: 0 auto;
@@ -6722,14 +6722,18 @@ html.is-dom-loading .c-wrapper {
     margin: 0 auto;
   }
 
+  .header-section p, .header-section ul {
+     font-size: 14px;
+     margin-left: 0px;
+   }
+
   #apps-para {
     text-align: left;
     margin: 0 auto;
   }
 
- .header-section p, .header-section ul {
-    font-size: 14px;
-    margin-left: 0px;
+  #imp-para {
+    font-size: 18px;
   }
 
   #mp-para ul li {
@@ -6737,10 +6741,6 @@ html.is-dom-loading .c-wrapper {
   }
 
   .list-title {
-    font-size: 18px;
-  }
-
-  #imp-para {
     font-size: 18px;
   }
 
@@ -6975,9 +6975,8 @@ html.is-dom-loading .c-wrapper {
     height: 64px;
   }
 
-  #imp-para {
-    font-size: 20px;
-    line-height: 32px;
+  #ppl-home h3 {
+    text-align: center;
   }
 
   #ppl-para {
@@ -6989,8 +6988,9 @@ html.is-dom-loading .c-wrapper {
     align-items: center;
   }
 
-  #ppl-home h3 {
-    text-align: center;
+  #imp-para {
+    font-size: 20px;
+    line-height: 32px;
   }
 
   .h1,
