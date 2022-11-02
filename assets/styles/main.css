@@ -6731,7 +6731,7 @@ html.is-dom-loading .c-wrapper {
     font-size: 14px;
   }
 
-  #f-header h2, #form-header {
+  #f-header h2, #form-header h2 {
     font-size: 32px;
   }
 
