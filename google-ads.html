@@ -267,11 +267,10 @@
         </section>
         <section class="c-section js-in-view -fade-in-up" style="display: flex;">
           <div style="margin: 0 auto;">
-            <div class="header-section">
+            <div class="header-section" id="welcome-ads">
               <h3 class=" u-font-10">Welcome to Mission Control.</h3>
             </div>
-            <div class="para-section"
-              style="text-align: center; width: 980px; display: flex; justify-content: center; flex-direction: column; align-items: center;">
+            <div id="welcome-para" class="para-section">
               <p>Since 2013 we have been crafting gorgeous Mobile and Web
                 App experiences for some of the biggest brands in the world.
                 And we do it on every platform including Mobile (iOS, Android),
@@ -287,7 +286,7 @@
           </div>
         </section>
 
-        <section class="c-section js-in-view -fade-in-up">
+        <section id="apps-ads" class=" header-section c-section js-in-view -fade-in-up">
           <div class="c-media-shape">
             <div class="l-container" style="display: grid; grid-template-columns: 1fr;">
               <div class="l-row">
@@ -296,20 +295,20 @@
                   <section class="c-section js-in-view -fade-in-up">
                     <div>
                       <div>
-                        <h3 class=" u-font-11" style="font-size: 72px;">Apps. Everywhere.</h3>
-                        <div>
-                          <p style="width: 400px;">Unified App Development. Mission Control shatters the single App paradigm. We
+                        <h3 class=" u-font-10">Apps. Everywhere.</h3>
+                        <div id="apps-para-ads" class="para-section apps-para">
+                          <p>Unified App Development. Mission Control shatters the single App paradigm. We
                             build
                             award-winning,
                             hand crafted apps for
                             iOS,
                             Android, macOS, Windows and even Linux <b>all at the same time with the same codebase</b>.
                           </p>
-                          <p style="width: 400px;">Everything is native, absolutely suited for each platform, and done in
+                          <p>Everything is native, absolutely suited for each platform, and done in
                             the time most
                             Developers produce a single App on one platform.
                           </p>
-                          <p style="width: 400px;">Why aim for just one App when you can be everywhere? Ready to find out
+                          <p>Why aim for just one App when you can be everywhere? Ready to find out
                             more?
                           </p>
                           <a href="#contact-form" class="c-button -blue">Contact Us</a>
@@ -319,7 +318,7 @@
                   </section>
                 </div>
                 <div class="l-column l-column-md-7 l-column-pull-md-12" style="margin-top: 120px;">
-                  <svg style="margin: 0px;" width="461" height="451" viewBox="0 0 561 551" fill="none"
+                  <svg class="illustration-1" style="margin: 0px;" width="461" height="451" viewBox="0 0 561 551" fill="none"
                                           xmlns="http://www.w3.org/2000/svg">
                                           <path
                                             d="M108.691 449.643C108.691 449.643 87.6459 441.879 63.8512 433.324C30.41 421.294 33.537 410.491 16.9344 403.765C-16.1528 390.36 7.29969 384.147 38.0387 395.434C66.3115 405.818 99.5875 409.252 114.827 414.768C135.277 422.173 159.667 431.088 159.667 431.088L108.691 449.643Z"
@@ -813,10 +812,10 @@
           </div>
         </section>
 
-        <section id="contact-form" class="c-section -margin-bottom-half js-in-view -fade-in-up">
+        <section class="c-section -margin-bottom-half js-in-view -fade-in-up">
           <div class="l-container">
             <div class="l-row form-section">
-              <div id="form-header" class="l-column l-column-md-6">
+              <div id="f-header" class="l-column l-column-md-6">
                 <h2 class="u-font-9">Come in, Control.</h2>
                 <p>Feel like having a chat? We are always excited to hear about new (or old) projects you may want a hand with.
                   Drop us a line below and we’ll get back to you immediately. Seriously, we’re always online!
@@ -825,7 +824,7 @@
             </div>
             <div class="l-row form-section">
               <div class="l-column l-column-md-10">
-                <form class="c-form" action="https://formspree.io/xwkrqjbk" method="POST">
+                <form id="f-home" class="c-form" action="https://formspree.io/xwkrqjbk" method="POST">
                   <div class="c-form__group--inline">
                     <div class="c-form__group-item">
                       <input name="firstName" placeholder="First name" type="text" required>
@@ -865,7 +864,7 @@
                   <section class="c-section js-in-view -fade-in-up">
                     <div>
                       <div class="l-row">
-                        <svg width="555" height="555" viewBox="0 0 655 655" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="illustration-1" width="555" height="555" viewBox="0 0 655 655" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path
                             d="M339.867 217.571C180.977 141.559 108.73 181.913 108.73 275.663C108.73 435.922 260.625 589.624 406.068 537.945C639.641 454.95 484.7 286.89 339.867 217.571Z"
                             fill="white" fill-opacity="0.06" />
@@ -1172,7 +1171,7 @@
                             d="M360.551 313.987L359.955 324.048C363.623 331.109 370.094 333.395 377.182 333.218V324.048C366.243 323.956 360.551 318.238 360.551 313.987Z"
                             fill="#2D44EB" />
                         </svg>
-                        <svg width="426" height="64" viewBox="0 0 426 64" fill="none"
+                        <svg class="os-icons" width="426" height="64" viewBox="0 0 426 64" fill="none"
                           xmlns="http://www.w3.org/2000/svg">
                           <path
                             d="M31.0775 0.947754C48.227 0.947754 62.1296 14.8504 62.1296 31.9999C62.1296 49.1493 48.227 63.052 31.0775 63.052C13.928 63.052 0.0253906 49.1493 0.0253906 31.9999C0.0253906 14.8504 13.9367 0.947754 31.0775 0.947754Z"
@@ -1263,27 +1262,27 @@
                     </div>
                   </section>
                 </div>
-                <div class="l-column l-column-md-7 l-column-pull-md-12">
-                  <h3 style="font-size: 72px;">Mission Profiles.</h3>
+                <div id="mp-ads" class="l-column l-column-md-7 l-column-pull-md-12 header-section">
+                  <h3 class="u-font-10">Mission Profiles.</h3>
                   <div class="l-row">
-                    <div class="l-column l-column-md-8">
-                      <p style="font-size: 20px; line-height: 32px;">From prototypes to full multi-platform App
+                    <div id="mp-section" class="l-column l-column-md-8 para-section">
+                      <p id="first-para">From prototypes to full multi-platform App
                         deployments on Mobile and
                         Desktop - we have a package that will suit your needs.
                       </p>
                       <p>
                       <ul>
-                        <li><b>Mercury Prototypes</b>: Our fast App prototype programmes to visualise, test and
+                        <li><b class="list-title">Mercury Prototypes</b>: Our fast App prototype programmes to visualise, test and
                           refine your concept.</li>
-                        <li><b>Moonshot MVPs</b>: Fully functional and launchable MVP Apps with complex backend
+                        <li><b class="list-title">Moonshot MVPs</b>: Fully functional and launchable MVP Apps with complex backend
                           systems and even AI and
                           Machine Learning.
                         </li>
-                        <li><b>Multi-App Sequences</b>: Mission Control's Flagship App programme on multiple
+                        <li><b class="list-title">Multi-App Sequences</b>: Mission Control's Flagship App programme on multiple
                           platforms.</li>
-                        <li><b>Control Systems</b>: Web-based content management for your App(s) giving you full
+                        <li><b class="list-title">Control Systems</b>: Web-based content management for your App(s) giving you full
                           control.</li>
-                        <li><b>App & Project Rescue</b>: Our proven Rescue Programme - re-building and
+                        <li><b class="list-title">App & Project Rescue</b>: Our proven Rescue Programme - re-building and
                           re-invigorating stale or
                           underachieving apps.
                         </li>
@@ -1376,9 +1375,9 @@
                     </div>
                   </div>
                 </div>
-                <div class="l-column l-column-md-6 l-column-pull-md-12">
+                <div class="l-column l-column-md-6 l-column-pull-md-12 header-section" id="sl-ads">
                   <!-- <h2 class="o-heading-ui -tail-right u-c-yellow u-font-4">Who</h2> -->
-                  <h3 class=" u-font-11" style="font-size: 72px; ">Successful Launches.</h3>
+                  <h3 class=" u-font-10" >Successful Launches.</h3>
                   <p>Mission Control crafts Web & Mobile solutions for companies who aren't afraid to push the envelope.
                   </p>
                   <p>You could say we're a bit rebellious, but actually, so are our customers.</p>
