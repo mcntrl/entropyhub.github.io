@@ -6740,15 +6740,6 @@ html.is-dom-loading .c-wrapper {
     font-size: 32px;
   }
 
-  #mp-section {
-    padding: 0px;
-    float: none;
-  }
-
-  #mp-ads .l-row {
-    margin-left: 0px;
-  }
-
   .para-section, #welcome-para {
     text-align: center;
     /* display: flex; */
@@ -6782,8 +6773,19 @@ html.is-dom-loading .c-wrapper {
     justify-content: left;
   }
 
+  #apps-ads .l-column-md-5, #apps-ads .c-section.js-in-view.-fade-in-up.is-in-view{
+    padding: 0px;
+  }
+
+  .l-column.l-column-md-7.l-column-pull-md-12 {
+
+  }
+
+  #mp-ads .l-row {
+    margin-left: 0px;
+  }
+
   #apps-para-ads p {
-    width: 300px;
     margin-right: 0px;
   }
 
@@ -6791,9 +6793,24 @@ html.is-dom-loading .c-wrapper {
     font-size: 18px;
   }
 
-  #mp-para ul li, #mp-ads ul li {
+  #mp-section {
+    padding: 0px;
+    float: none;
+  }
+
+  .last-item {
+    margin-bottom: 0px;
+    list-style: none;
+  }
+
+  #mp-para ul li, #mp-ads ul .list-item {
     list-style: none;
     margin-bottom: 28px;
+  }
+
+
+  #mp-ads {
+    float: none;
   }
 
   .list-title {
@@ -7035,6 +7052,10 @@ html.is-dom-loading .c-wrapper {
 }
 
 @media screen and (min-width: 90em) {
+
+  #apps-ads .l-column.l-column-md-7.l-column-pull-md-12 {
+    margin-top: 120px;
+  }
 
   #illustration-1 {
     margin: 0 auto;
