@@ -6681,6 +6681,11 @@ html.is-dom-loading .c-wrapper {
 
 @media screen and (max-width: 412px) {
 
+  .c-section.-margin-bottom-half {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
   .c-header__wrapper {
     display: flex;
     justify-content: center;
