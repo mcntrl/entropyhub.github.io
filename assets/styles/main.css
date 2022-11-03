@@ -2112,18 +2112,13 @@ html.js .js-in-view.-fade-in-up.is-in-view {
 }
 
 .c-form {
-  width: 60%;
+  max-width: 600px;
 }
 
 #form-header, #f-header {
   text-align: center;
 }
 
-.form-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 
 .c-form .c-form__group,
 .c-form .c-form__group--inline {
@@ -7052,6 +7047,15 @@ html.is-dom-loading .c-wrapper {
 }
 
 @media screen and (min-width: 90em) {
+
+  #f-home button, #form-home button {
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  #form-home, #f-home {
+    margin: 0px;
+  }
 
   #apps-ads .l-column.l-column-md-7.l-column-pull-md-12 {
     margin-top: 120px;
