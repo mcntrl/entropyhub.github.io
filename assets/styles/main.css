@@ -7052,6 +7052,7 @@ html.is-dom-loading .c-wrapper {
 }
 
 @media screen and (min-width: 90em) {
+    
 
   #apps-ads .l-column.l-column-md-7.l-column-pull-md-12 {
     margin-top: 120px;
@@ -7381,6 +7382,13 @@ html.is-dom-loading .c-wrapper {
 }
 
 @media screen and (min-width: 20em) {
+
+  .clients-icons .c-case-study-excerpt__logo {
+    width: 175px;
+    height: 175px;
+  }
+
+  
   .l-column-xs-1 {
     width: 8.333%;
   }
