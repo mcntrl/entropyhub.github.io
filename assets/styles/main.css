@@ -7047,6 +7047,7 @@ html.is-dom-loading .c-wrapper {
 }
 
 @media screen and (min-width: 90em) {
+    
 
   #f-home button, #form-home button {
     margin: 0 auto;
@@ -7385,6 +7386,13 @@ html.is-dom-loading .c-wrapper {
 }
 
 @media screen and (min-width: 20em) {
+
+  .clients-icons .c-case-study-excerpt__logo {
+    width: 175px;
+    height: 175px;
+  }
+
+  
   .l-column-xs-1 {
     width: 8.333%;
   }
