@@ -7049,6 +7049,11 @@ html.is-dom-loading .c-wrapper {
 @media screen and (min-width: 70em) {
 
 
+  .heading-info {
+    width: 1000px;
+    margin: 0 auto;
+  }
+
   #f-home button, #form-home button {
     margin: 0 auto;
     justify-content: center;
