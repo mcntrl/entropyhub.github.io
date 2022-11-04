@@ -514,7 +514,7 @@ input[type='search'],
 input[type='tel'],
 input[type='text'] {
   width: 100%;
-  padding: 0 0 10px;
+  padding: 15px 10px;
   border: 0;
   border-bottom: 1px solid #29FAFF;
 }
@@ -1620,6 +1620,10 @@ html.js .js-in-view.-fade-in-up.is-in-view {
           transform-origin: center top;
   margin-right: auto;
   margin-left: auto;
+}
+
+.c-button.-left {
+  margin-left: -31px;
 }
 
 .c-button.-blue {
@@ -7626,7 +7630,7 @@ html.is-dom-loading .c-wrapper {
   }
 
   #form-home, #f-home {
-    margin: 0px;
+    margin: 0px auto;
   }
 
   #apps-ads .l-column.l-column-md-7.l-column-pull-md-12 {
